@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/base.module.scss'
 import { GlobalHeader } from '@/components/GlobalHeader'
+import { KeyVisual } from '@/components/KeyVisual'
+KeyVisual
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -15,7 +17,7 @@ export default function Home() {
       </Head>
       <GlobalHeader />
       <main className={`${styles.main} ${inter.className}`}>
-        
+        <KeyVisual />
       </main>
     </>
   )
