@@ -1,5 +1,6 @@
 .header {
   --logo-size: 18px;
+  --transition-time: .3s;
   font-family: var(--font-family-en);
   padding: 16px 32px;
   position: sticky;
@@ -15,17 +16,42 @@
 
   .logo {
     font-size: var(--logo-size);
+
+    > a {
+      transition: color var(--transition-time);
+    }
+  
+    &:hover {
+      > a {
+        color: var(--primary-color);
+      }
+    }
   }
 
   .list {
     display: flex;
     align-items: center;
     gap: 0 16px;
+    cursor: pointer;
   }
 
   .menu {
     gap: 0 24px;
+
+    > li {
+      transition: transform var(--transition-time);
+
+      > a {
+        transition: color var(--transition-time);
+      }
+
+      &:hover {
+        transform: translate(1px, 1px);
+
+        > a {
+          color: var(--primary-color);
+        }
+      }
+    }
   }
 }
-
-
