@@ -7,6 +7,7 @@
   padding: 16px 32px;
   position: sticky;
   top: 0;
+  background-color: var(--white);
 
   @include mediaScreen('tablet') {
     --logo-size: 16px;
@@ -28,12 +29,15 @@
 
   .logo {
     font-size: var(--logo-size);
+    transition: transform var(--transition-time);
 
     > a {
       transition: color var(--transition-time);
     }
   
     &:hover {
+      transform: translate(1px, 1px);
+
       > a {
         color: var(--primary-color);
       }
@@ -69,6 +73,24 @@
     @include mediaScreen('tablet') {
       opacity: 0;
       visibility: hidden;
+    }
+  }
+
+  .icon_list {
+    > li {
+      transition: transform var(--transition-time);
+
+      path {
+        transition: fill var(--transition-time);
+      }
+
+      &:hover {
+        transform: translate(1px, 1px);
+
+        path {
+          fill: var(--primary-color);
+        }
+      }
     }
   }
 

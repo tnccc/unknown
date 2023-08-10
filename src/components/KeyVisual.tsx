@@ -1,4 +1,3 @@
-import styles from '@/styles/base.module.scss'
 import classes from '@/styles/section/key_visual.module.scss'
 
 export const KeyVisual = () => {

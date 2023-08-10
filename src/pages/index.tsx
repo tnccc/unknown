@@ -3,8 +3,9 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/base.module.scss'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { KeyVisual } from '@/components/KeyVisual'
-KeyVisual
+import { CommonButton } from '@/components/common/CommonButton'
 const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       <GlobalHeader />
       <main className={`${styles.main} ${inter.className}`}>
         <KeyVisual />
+        <CommonButton 
+          text="Add to Cart"
+        />
       </main>
     </>
   )

@@ -1,0 +1,32 @@
+@use '../mixin.scss' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  color: var(--white);
+  background-color: var(--primary-color);
+
+  &.caution {
+    background-color: var(--caution-color);
+  }
+
+  &.outline {
+    border: 1px solid var(--gray);
+    background-color: transparent;
+    color: var(--black);
+  }
+
+  .heart {
+    margin-inline-end: 12px;
+    position: relative;
+    top: 2px;
+  }
+
+  .arrow {
+    margin-inline-start: 12px;
+    position: relative;
+    top: 2px;
+  }
+}
