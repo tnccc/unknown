@@ -1,0 +1,31 @@
+.header {
+  --logo-size: 18px;
+  font-family: var(--font-family-en);
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+  }
+
+  .logo {
+    font-size: var(--logo-size);
+  }
+
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+  }
+
+  .menu {
+    gap: 0 24px;
+  }
+}
+
+
