@@ -1,8 +1,8 @@
 import classes from '@/styles/section/container.module.scss'
 import { GlobalHeading } from '../GlobalHeading'
-GlobalHeading
 
-export const SectionContainer = ({subHeading ,heading}: any) => {
+
+export const SectionContainer = ({subHeading,heading, items}: any) => {
   return(
     <>
       <div className={classes.container}>

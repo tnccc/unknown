@@ -3,11 +3,12 @@
 .header {
   --logo-size: 18px;
   --transition-time: .3s;
-  font-family: var(--font-family-en);
+  font-family: var(--font-family-main);
   padding: 16px 32px;
   position: sticky;
   top: 0;
   background-color: var(--white);
+  border-block-end: 1px solid var(--border-color);
 
   @include mediaScreen('tablet') {
     --logo-size: 16px;

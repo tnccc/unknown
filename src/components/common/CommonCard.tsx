@@ -1,23 +1,24 @@
 import classes from '@/styles/common/card.module.scss'
 
-export const CommonCard = ({card}: any) => {
+export const CommonCard = ({item}: any) => {
+  // stripeを使用して画像を取得するので簡易的なものになります
   const getImage = (fileName: string): string => {
-    return `/images/${fileName}`
+    return `${fileName}`
   }
-  console.log(card)
+  console.log(item.path)
 
   return(
     <>
       <div className={classes.card}>
-        <div>
-          <img src={getImage(card)} alt="" />
+        <div className={classes.image}>
+          <img src={getImage(item?.path)} alt={item.name} />
           <div>
             {/* hover時に出現 */}
           </div>
         </div>
-        <div>
-          <h3></h3>
-          <p></p>
+        <div className={classes.description}>
+          <h3>{item.name}</h3>
+          <em>{item.price}</em>
         </div>
       </div>
     </>
