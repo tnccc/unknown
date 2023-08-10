@@ -1,0 +1,18 @@
+@use '../mixin.scss' as *;
+
+.heading {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px 0;
+  font-weight: bold;
+
+  > h3 {
+    font-size: var(--font-size-x-large);
+  }
+
+  > span {
+    color: var(--primary-color);
+    font-weight: normal;
+  }
+}
