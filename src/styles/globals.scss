@@ -16,6 +16,12 @@
   --font-size-large: 16px;
   --font-size-medium: 14px;
   --font-family-en: 'Montserrat', sans-serif;
+
+  // z-index
+  --z-index-min: 10;
+  --z-index-contents: 50;
+  --z-index-nav: 80;
+  --z-index-max: 100;
 }
 
 html,
@@ -30,4 +36,9 @@ ul, li {
 a {
   color: var(--black);
   text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

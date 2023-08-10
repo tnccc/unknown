@@ -6,28 +6,42 @@ import { CartIcon } from './icon/CartIcon'
 import { SearchIcon } from './icon/SearchIcon'
 
 export const GlobalHeader = () => {
+  const menus = [
+    { title: 'New', path: '/'},
+    { title: 'Tops', path: '/'},
+    { title: 'Bottoms', path: '/'},
+    { title: 'Sale', path: '/'},
+  ]
+
   return(
     <>
       <div className={classes.header}>
         <div className={`${styles.container} ${classes.container}`}>
-          <h1 className={classes.logo}>
-            <Link href="/">
-              UNKNOWN
-            </Link>
-          </h1>
-          <ul className={`${classes.list} ${classes.menu}`}>
-            <li><Link href="/">New</Link></li>
-            <li><Link href="/">Tops</Link></li>
-            <li><Link href="/">Bottoms</Link></li>
-            <li><Link href="/">Sale</Link></li>
-          </ul>
-          <ul className={classes.list}>
+          <div className={classes.left_column}>
+            <h1 className={classes.logo}>
+              <Link href="/">
+                UNKNOWN
+              </Link>
+            </h1>
+            <ul className={`${classes.list} ${classes.menu_list}`}>
+              {menus.map((menu) =>
+              <li key={menu.title}>
+                <Link href={menu.path}>{menu.title}</Link>
+              </li>
+              )}
+            </ul>
+          </div>
+          <ul className={`${classes.list} ${classes.icon_list}`}>
             <li><UserIcon /></li>
             <li><CartIcon /></li>
             <li><SearchIcon /></li>
           </ul>
+          <div className={classes.hamburger}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-
       </div>
     </>
   )
