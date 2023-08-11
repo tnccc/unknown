@@ -1,0 +1,36 @@
+@use '../mixin.scss' as *;
+
+.card {
+  width: calc(100% / 4 -  20px);
+
+  .image {
+
+    > img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+  
+  .description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-block-start: 16px;
+    font-family: var(--font-family-sub);
+
+    > em {
+      display: inline-flex;
+      align-items: baseline;
+      color: var(--primary-color);
+      
+      &::before {
+        content: "¥";
+        display: block;
+        margin-inline-end: 2px;
+        font-size: var(--font-size-medium);
+      }
+    }
+  }
+}

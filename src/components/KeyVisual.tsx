@@ -1,4 +1,3 @@
-import styles from '@/styles/base.module.scss'
 import classes from '@/styles/section/key_visual.module.scss'
 
 export const KeyVisual = () => {
@@ -7,7 +6,7 @@ export const KeyVisual = () => {
       <div className={classes.key_visual}>
         <figure>
           <img 
-            src="/images/img_01.jpg" 
+            src="/images/mv.jpg" 
             alt="UNKNOWN" 
             loading='lazy'
           />

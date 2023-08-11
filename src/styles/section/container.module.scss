@@ -1,0 +1,11 @@
+@use '../mixin.scss' as *;
+
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 64px auto;
+
+  @include mediaScreen('tablet') {
+    max-width: none;
+  }
+}
