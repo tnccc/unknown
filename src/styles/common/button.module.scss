@@ -21,6 +21,7 @@
 
     .arrow {
       svg {
+        transform: translateX(4px);
         path {
           stroke: var(--primary-color);
         }
@@ -50,6 +51,8 @@
     top: 2px;
     
     svg {
+      transition: transform .2s ease-out;
+
       path {
         transition: stroke var(--transition-time) ease-out;
       }

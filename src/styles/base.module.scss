@@ -1,10 +1,16 @@
 @use 'mixin' as *;
 
+.pages {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-height: calc(100dvh - 56px);
+  height: 100%;
 }
 
 .container {

@@ -1,0 +1,13 @@
+.footer {
+  margin-block-start: 64px;
+  background-color: var(--gray);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 32px;
+    font-size: var(--font-size-min);
+    font-weight: bold;
+  }
+}
