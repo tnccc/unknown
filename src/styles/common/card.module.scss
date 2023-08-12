@@ -3,9 +3,14 @@
 
 .card {
   --gap: 20px;
-  width: calc(100% / 4 -  var(--gap));
+  --column: 4;
+  width: calc(100% / var(--column) -  var(--gap));
   position: relative;
   cursor: pointer;
+
+  &.three {
+    --column: 3;
+  }
 
   &:hover {
     .image {
