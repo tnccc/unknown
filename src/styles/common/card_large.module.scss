@@ -1,8 +1,15 @@
+@use '../mixin.scss' as *;
+
 .card {
   --gap: 24px;
   max-width: 420px;
   width: calc(100% / 3 - var(--gap));
   cursor: pointer;
+
+  @include mediaScreen('tablet') {
+    max-width: none;
+    width: 100%;
+  }
 
   &:hover {
     .figure {
@@ -20,6 +27,7 @@
   .figure {
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
 
     &::before {
       content: "";

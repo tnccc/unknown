@@ -7,5 +7,6 @@
 
   @include mediaScreen('tablet') {
     max-width: none;
+    margin: 32px auto;
   }
 }

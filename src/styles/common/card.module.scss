@@ -23,6 +23,7 @@
   .image {
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
 
     &::before {
       content: "";
@@ -57,12 +58,13 @@
       display: inline-flex;
       align-items: baseline;
       color: var(--primary-color);
+      font-size: calcClamp(12, 14, $minViewport, $maxViewport);
       
       &::before {
         content: "¥";
         display: block;
         margin-inline-end: 2px;
-        font-size: var(--font-size-medium);
+        font-size: calcClamp(12, 14, $minViewport, $maxViewport);
       }
     }
   }

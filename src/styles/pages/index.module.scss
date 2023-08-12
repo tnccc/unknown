@@ -1,11 +1,12 @@
 @use '../mixin.scss' as *;
 @use '../function.scss' as *;
 
-$maxViewport: 1440;
-$minViewport: 740;
-
 .top {
   --margin-block-start: 128px;
+
+  @include mediaScreen('tablet') {
+    --margin-block-start: 64px;
+  }
 
   .section {
     padding-inline: 24px;
@@ -14,8 +15,12 @@ $minViewport: 740;
   .category_list {
     display: flex;
     justify-content: center;
-    gap: 0 24px;
+    gap: 24px;
     margin-block-start: var(--margin-block-start);
+
+    @include mediaScreen('tablet') {
+      flex-direction: column;
+    }
   }
 
   .banner {
@@ -26,6 +31,14 @@ $minViewport: 740;
       display: grid;
       grid-template-areas: "text figure";
       grid-template-columns: repeat(2, 1fr);
+
+      @include mediaScreen('tablet') {
+        grid-template-areas: 
+          "figure"
+          "text"
+        ;
+        grid-template-columns: 1fr;
+      }
     }
 
     .banner_text {
@@ -36,12 +49,30 @@ $minViewport: 740;
       gap: 16px 0;
       margin: 0 auto;
       padding-inline: 32px;
+
+      @include mediaScreen('tablet') {
+        display: grid;
+        justify-content: flex-start;
+        grid-template-areas: 
+          "heading button"
+          "heading ."
+        ;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        padding: 16px;
+      }
       
       > h4 {
         font-size: calcClamp(32, 52, $minViewport, $maxViewport);
 
+        @include mediaScreen('tablet') {
+          grid-area: heading;
+          font-size: calcClamp(18, 28, 374, 768);
+        }
+
         span {
           display: block;
+          text-wrap: nowrap;
         }
       }
 
@@ -49,11 +80,45 @@ $minViewport: 740;
         max-width: 176px;
         border-radius: 5px;
         align-items: flex-start;
+
+        @include mediaScreen('tablet') {
+          grid-area: button;
+          place-self: center;
+          max-width: none;
+          width: 90%;
+          position: relative;
+          top: 10%;
+          font-size: var(--font-size-medium);
+        }
       }
     }
 
     .banner_figure {
       grid-area: figure;
+    }
+  }
+
+  .ranking {
+    
+    > div {
+      margin-block-start: 32px;
+      padding-block-end: 32px;
+      border-block: 1px solid var(--border-color);
+    }
+
+    .ranking_list {
+      > div {
+        flex-wrap: wrap;
+        gap: 24px;
+
+        @include mediaScreen('tablet') {
+          flex-direction: column;
+          
+          > div {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

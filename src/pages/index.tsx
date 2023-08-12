@@ -65,13 +65,15 @@ export default function Home(props: any) {
                 </div>
               </div>
             </section>
-            <section className={classes.ranking}>
-              <SectionHeading
-                subHeading={'TOP SELLING'}
-                heading={'RANKING'}
-              />
-              <div className={classes.ranking_list}>
-                <CommonCardList items={props.products}/>
+            <section className={`${classes.section} ${classes.ranking}`}>
+              <div>
+                <SectionHeading
+                  subHeading={'TOP SELLING'}
+                  heading={'RANKING'}
+                />
+                <div className={classes.ranking_list}>
+                  <CommonCardList items={[...props.products, ...props.products]}/>
+                </div>
               </div>
             </section>
           </section>
