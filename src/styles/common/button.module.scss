@@ -7,6 +7,26 @@
   padding: 12px;
   color: var(--white);
   background-color: var(--primary-color);
+  transition: 
+    background-color var(--transition-time) ease-out,
+    color var(--transition-time) ease-out,
+    border var(--transition-time) ease-out
+  ;
+  border: 1px solid var(--primary-color);
+
+  &:hover {
+    border: 1px solid var(--primary-color);
+    background-color: var(--white);
+    color: var(--primary-color);
+
+    .arrow {
+      svg {
+        path {
+          stroke: var(--primary-color);
+        }
+      }
+    }
+  }
 
   &.caution {
     background-color: var(--caution-color);
@@ -28,5 +48,11 @@
     margin-inline-start: 12px;
     position: relative;
     top: 2px;
+    
+    svg {
+      path {
+        transition: stroke var(--transition-time) ease-out;
+      }
+    }
   }
 }

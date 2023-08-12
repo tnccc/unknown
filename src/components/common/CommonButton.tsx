@@ -2,7 +2,13 @@ import classes from '@/styles/common/button.module.scss'
 import { Arrow } from '../icon/Arrow';
 import { Heart } from '../icon/Heart';
 
-export const CommonButton = ({ text, variant, icon = 'default' }: any) => {
+type Props = {
+  text: string;
+  variant?: string;
+  icon?: string;
+}
+
+export const CommonButton = ({ text, variant = 'default', icon = 'default' }: Props) => {
   const buttonClasses = `${classes.button} ${classes[variant]}`;
 
   return(

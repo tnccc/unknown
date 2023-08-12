@@ -10,9 +10,6 @@ export const CommonCard = ({item}: any) => {
       <div className={classes.card}>
         <div className={classes.image}>
           <img src={getImage(item?.path)} alt={item.name} />
-          <div>
-            {/* hover時に出現 */}
-          </div>
         </div>
         <div className={classes.description}>
           <h3>{item.name}</h3>

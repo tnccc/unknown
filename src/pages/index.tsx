@@ -4,11 +4,11 @@ import classes from '@/styles/pages/index.module.scss'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { KeyVisual } from '@/components/KeyVisual'
 import { SectionHeading } from '@/components/SectionHeading'
+import { CommonButton } from '@/components/common/CommonButton'
 import { CommonSlider } from '@/components/common/CommonSlider'
+import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 
 export default function Home(props: any) {
-  const rewindValue = true
-
   return (
     <>
       <Head>
@@ -21,12 +21,45 @@ export default function Home(props: any) {
       <GlobalHeader />
       <main className={`${styles.main}`}>
         <KeyVisual />
-        <section className={classes.section}>
-          <SectionHeading heading={'New Arrivals'} />
-          <CommonSlider 
-            items={[...props.products, ...props.products]}
-            rewind={rewindValue}
-          />
+        <section className={classes.top}>
+          <div className={classes.section}>
+            <SectionHeading heading={'New Arrivals'} />
+            <CommonSlider 
+              items={[...props.products, ...props.products]}
+              rewind={true}
+            />
+            <div className={classes.category_list}>
+              <CommonCardLarge 
+                path={'/images/all.jpg'}
+                caption='ALL'
+              />
+              <CommonCardLarge 
+                path={'/images/tops.jpg'}
+                caption='TOPS'
+              />
+              <CommonCardLarge 
+                path={'/images/bottoms.jpg'}
+                caption='BOTTOMS'
+              />
+            </div>
+          </div>
+          <div className={classes.banner}>
+            <div className={classes.banner_contents}>
+              <div className={classes.banner_text}>
+                <h4>
+                  <span>New 2023</span>
+                  <span>Clothes Collection</span>
+                </h4>
+                <CommonButton
+                  icon={'arrow'}
+                  text={'Shop Now'}
+                />
+              </div>
+              <figure className={classes.banner_figure}>
+                <img src="/images/banner.jpg" alt="New 2023 Clothes Collection" />
+              </figure>
+            </div>
+          </div>
         </section>
       </main>
     </>
