@@ -32,9 +32,9 @@ export const GlobalHeader = () => {
             </ul>
           </div>
           <ul className={`${classes.list} ${classes.icon_list}`}>
+            <li><SearchIcon /></li>
             <li><UserIcon /></li>
             <li><CartIcon /></li>
-            <li><SearchIcon /></li>
           </ul>
           <div className={classes.hamburger}>
             <span></span>

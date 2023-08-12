@@ -1,11 +1,9 @@
 import classes from '@/styles/common/card.module.scss'
 
 export const CommonCard = ({item}: any) => {
-  // stripeを使用して画像を取得するので簡易的なものになります
   const getImage = (fileName: string): string => {
     return `${fileName}`
   }
-  console.log(item.path)
 
   return(
     <>
