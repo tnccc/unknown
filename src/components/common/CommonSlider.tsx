@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 // @ts-ignore spilideの型定義を無視
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
@@ -23,6 +22,18 @@ type SliderProps = {
 
 export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderProps) => {
   const splideRef = useRef<Splide | null>(null);
+  const options = {
+    perPage: perPage,
+    gap: gap,
+    rewind: rewind,
+    breakpoints: {
+      768: {
+        perPage: 1,
+        gap: 0,
+        rewind: true
+      }
+    }
+  }
 
   const goToPrevSlide = () => {
     if(splideRef.current) {
@@ -42,7 +53,7 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
         ref={splideRef}
         hasTrack={false}
         className={classes.slider}
-        options={ {perPage, gap, rewind} }
+        options={options}
       >
         <SplideTrack>
           {items.map((item: any) => 

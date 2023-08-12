@@ -1,6 +1,7 @@
 @use '../mixin.scss' as *;
 
 .heading {
+  --font-size-heading: var(--font-size-x-large);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -8,7 +9,11 @@
   font-weight: bold;
 
   > h3 {
-    font-size: var(--font-size-x-large);
+    font-size: var(--font-size-heading);
+
+    @include mediaScreen('mobile') {
+      --font-size-heading: calc(var(--font-size-large) + 10px)
+    }
   }
 
   > span {

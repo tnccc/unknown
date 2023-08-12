@@ -1,3 +1,7 @@
+$baseFontSize: 16;
+$maxViewport: 1440;
+$minViewport: 740;
+
 // rem => px
 @function rem($pixels) {
   @return calc(#{$pixels} / #{$baseFontSize} * 1rem);
