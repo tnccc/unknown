@@ -1,7 +1,18 @@
 import classes from '@/styles/common/card_list.module.scss'
 import { CommonCard } from "./CommonCard"
 
-export const CommonCardList = ({items}: any) => {
+type Props = {
+  name: string;
+  price: string;
+  path: string;
+  new?: boolean;
+}
+
+type Item = {
+  items: Item[];
+}
+
+export const CommonCardList = ({items}: Item) => {
   return(
     <>
       <div className={classes.card_list}>
