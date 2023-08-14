@@ -1,4 +1,4 @@
-export const checkboxs = [
+export const Categories = [
   {
     label: 'Tees',
     checked: false,

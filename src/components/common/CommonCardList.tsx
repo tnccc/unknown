@@ -1,12 +1,6 @@
 import classes from '@/styles/common/card_list.module.scss'
 import { CommonCard } from "./CommonCard"
-
-type Item = {
-  name: string;
-  price: string;
-  path: string;
-  new?: boolean;
-}
+import { Item } from '../../../public/const/Allitems';
 
 type CommonCardListProps = {
   items: Item[];

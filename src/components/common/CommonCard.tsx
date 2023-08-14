@@ -5,11 +5,17 @@ type CommonCard = {
   item: any;
   link?: string;
   cardType?: string;
+  explanation?: boolean;
 }
 
 export const CommonCard = ({item, link = '/', cardType = 'default'}: CommonCard) => {
   const getImage = (fileName: string): string => {
     return `${fileName}`
+  }
+
+  const formattedPrice = (price: any) => {
+    const priceStr = price.toString();
+    return priceStr
   }
 
   return(
@@ -21,7 +27,7 @@ export const CommonCard = ({item, link = '/', cardType = 'default'}: CommonCard)
           </div>
           <div className={classes.description}>
             <h3>{item.name}</h3>
-            <em>{item.price}</em>
+            <em>{formattedPrice(item.price)}</em>
           </div>
         </Link>
       </div>

@@ -6,19 +6,18 @@ type Props = {
   checked: boolean;
 }
 
-type checkBoxs = {
-  checkBoxs: Props[]
+type checkBoxes = {
+  checkBoxes: Props[]
 }
 
-export const GlobalMenuList = ({checkBoxs}: checkBoxs) => {
+export const GlobalMenuList = (checkBoxes: checkBoxes) => {
   return (
     <>
-      {checkBoxs.map((check) => {
-        <div>
-          <CommonCheckBox checkBox={check}/>
+      <div className={classes.menu_list}>
+        <div className={classes.container}>
+          <CommonCheckBox checkBoxes={checkBoxes.checkBoxes} />
         </div>
-      })}
-      
+      </div>
     </>
   )
 }

@@ -2,37 +2,39 @@ import { useState } from 'react'
 import classes from '@/styles/common/check_box.module.scss'
 
 type Props = {
-  checkBox: any;
+  checkBoxes: any;
 }
 
-export const CommonCheckBox = ({checkBox}: Props) => {
-  const [isChecked, setIsChecked] = useState(false)
-  const onChange = (e: any) => {
-    const newCheckBoxs = checkBox.map((check: any) => {
-      const newCheck = { ...check };
-      if(newCheck.label === e.target.value) {
-        newCheck.checked = !newCheck.checked;
+export const CommonCheckBox = ({checkBoxes}: Props) => {
+  const [checkBoxList, setCheckBoxList] = useState(checkBoxes)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updatedCheckBoxes = checkBoxList.map((checkBoxItem: any) => {
+      const newCheckBox = { ...checkBoxItem };
+      if(newCheckBox.label === e.target.value) {
+        newCheckBox.checked = !checkBoxItem.checked;
+        console.log(checkBoxList);
       }
-      return newCheck
-    });
-    setIsChecked(newCheckBoxs);
+      return newCheckBox;
+    })
+    setCheckBoxList(updatedCheckBoxes);
   }
-  console.log(checkBox)
 
   return(
     <>
-      <div>
-        {checkBox.map((check: any) => {
-          <div key={check.label}>
-            <label>{check.label}</label>
+      {checkBoxList.map((check: any) => 
+        <div className={classes.check_box} key={check.label}>
+          <label>
             <input
               type="checkbox"
-              checked={isChecked}
-              onChange={() => setIsChecked((prevState) => !prevState)}
+              value={check.label}
+              checked={check.checked}
+              onChange={handleChange}
             />
-          </div>
-        })}
-      </div>
+              <span className={`${check.checked ? classes.checked : ''}`}></span>
+              {check.label}
+          </label>
+        </div>
+      )}
     </>
   )
 }

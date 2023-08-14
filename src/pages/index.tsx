@@ -9,6 +9,7 @@ import { CommonButton } from '@/components/common/CommonButton'
 import { CommonSlider } from '@/components/common/CommonSlider'
 import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 import { CommonCardList } from '@/components/common/CommonCardList'
+import { AllItems } from '../../public/const/Allitems'
 
 export default function Home(props: any) {
   return (
@@ -28,7 +29,7 @@ export default function Home(props: any) {
             <div className={classes.section}>
               <SectionHeading heading={'New Arrivals'} />
               <CommonSlider 
-                items={[...props.products, ...props.products]}
+                items={AllItems}
                 rewind={true}
               />
               <div className={classes.category_list}>
@@ -75,7 +76,7 @@ export default function Home(props: any) {
                   heading={'RANKING'}
                 />
                 <div className={classes.ranking_list}>
-                  <CommonCardList items={[...props.products, ...props.products]}/>
+                  <CommonCardList items={AllItems}/>
                 </div>
               </div>
             </section>
