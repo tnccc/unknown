@@ -30,6 +30,13 @@
         &::placeholder {
           color: var(--gray);
         }
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+          -moz-appearance:textfield;
+        }
       }
   
       .icon {
