@@ -1,19 +1,15 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 // @ts-ignore spilideの型定義を無視
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import classes from '@/styles/common/slider.module.scss'
 import { CommonCard } from './CommonCard';
 import { SliderArrow } from '../icon/SliderArrow';
+import { Item } from '../../../public/const/Allitems';
 
-type SlideItem = {
-  name: string;
-  path: string;
-  price: string;
-}
 
 type SliderProps = {
-  items: SlideItem[];
+  items: Item[];
   perPage?: number;
   gap?: number;
   rewind?: boolean;
@@ -33,7 +29,7 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
         rewind: true
       }
     }
-  }
+  };
 
   const goToPrevSlide = () => {
     if(splideRef.current) {
@@ -61,10 +57,7 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
               className={classes.slider_slide}
               key={item.name}
             >
-              <CommonCard 
-                className={classes.slider_card}
-                item={item}
-              />
+              <CommonCard item={item}/>
             </SplideSlide>
           )}
         </SplideTrack>
@@ -73,8 +66,8 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
             onClick={goToPrevSlide}
             className={`${classes.slider_arrow} ${classes.slider_arrow_prev}`}
           >
-              <SliderArrow />
-            </button>
+            <SliderArrow />
+          </button>
           <button
             onClick={goToNextSlide}
             className={`${classes.slider_arrow} ${classes.slider_arrow_next}`}

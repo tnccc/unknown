@@ -1,23 +1,18 @@
 import classes from '@/styles/common/card_list.module.scss'
 import { CommonCard } from "./CommonCard"
+import { Item } from '../../../public/const/Allitems';
 
-type Props = {
-  name: string;
-  price: string;
-  path: string;
-  new?: boolean;
-}
-
-type Item = {
+type CommonCardListProps = {
   items: Item[];
-}
+  cardType?: string;
+};
 
-export const CommonCardList = ({items}: Item) => {
+export const CommonCardList = ({items, cardType = 'default'}: CommonCardListProps) => {
   return(
     <>
-      <div className={classes.card_list}>
+      <div className={`${classes.card_list} ${classes[cardType]}`}>
         {items.map((item: any) => 
-          <CommonCard key={item.name} item={item}/>
+          <CommonCard key={item.name} item={item} cardType={cardType}/>
         )}
       </div>
     </>

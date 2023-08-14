@@ -1,0 +1,20 @@
+.pages {
+  --left-column-width: 25%;
+
+  .container {
+    display: flex;
+    gap: 0 80px;
+    max-width: var(--max-width);
+    margin: 64px auto 0;
+    padding-inline: 80px;
+
+    .left_column {
+      flex: 1 0 var(--left-column-width);
+      padding-inline: 32px;
+    }
+
+    .right_column {
+      flex: auto;
+    }
+  }
+}

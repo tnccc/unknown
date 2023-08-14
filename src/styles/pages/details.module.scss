@@ -1,0 +1,26 @@
+.pages {
+  --left-column-width: 50%;
+
+  .container {
+    display: flex;
+    gap: 0 80px;
+    max-width: var(--max-width);
+    margin: 64px auto 0;
+    padding-inline: 80px;
+
+    .left_column {
+      width: var(--left-column-width);
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+      }
+      
+    }
+
+    .right_column {
+      flex: auto;
+    }
+  }
+}
