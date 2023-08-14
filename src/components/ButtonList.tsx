@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classes from '@/styles/button_list.module.scss'
 import { CommonSelectButton } from './common/CommonSelectButton'
 
@@ -8,6 +9,7 @@ type Props = {
 }
 
 export const ButtonList = ({heading ,buttonItems, styles}: Props) => {
+
   return (
     <>
       <div
@@ -16,12 +18,9 @@ export const ButtonList = ({heading ,buttonItems, styles}: Props) => {
       >
         <div className={classes.heading}>{heading}</div>
         <div className={classes.container}>
-          {buttonItems.map((buttonItem: any) =>
-            <CommonSelectButton 
-              value={buttonItem.value}
-              size={buttonItem.size}
-            />
-          )}
+          <CommonSelectButton 
+            buttonItems={buttonItems}
+          />
         </div>
       </div>
     </>

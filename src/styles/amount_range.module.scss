@@ -1,3 +1,6 @@
+@use '../styles/mixin' as *;
+@use '../styles/function' as *;
+
 .amount_range {
   display: flex;
   flex-direction: column;
@@ -21,7 +24,7 @@
   
       > input {
         width: 100%;
-        padding: 8px 8px 8px 48px;
+        padding: 8px 8px 8px calcClamp(32, 40, $minViewport, $maxViewport);
         border: 1px solid var(--gray);
   
         &::placeholder {

@@ -6,4 +6,9 @@
   font-size: var(--font-size-medium);
   font-family: var(--font-family-sub);
   border: 1px solid var(--gray);
+
+  &.selected {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
 }
