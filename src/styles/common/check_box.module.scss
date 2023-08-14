@@ -1,9 +1,14 @@
 .check_box {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  font-family: var(--font-family-sub);
   
   > label {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 
     input {
       display: none;
@@ -34,5 +39,11 @@
         }
       }
     }
+  }
+
+  .total {
+    flex: 1;
+    font-size: var(--font-size-medium);
+    text-align: right;
   }
 }

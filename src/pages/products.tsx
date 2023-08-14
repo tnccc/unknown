@@ -2,14 +2,16 @@ import Head from 'next/head'
 import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/products.module.scss'
 import { AllItems } from '../../public/const/Allitems'
+import { Categories } from '../../public/const/Categories'
+import { Department } from '../../public/const/Department'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
 import { CheckBoxList } from '@/components/CheckBoxList'
 import { ButtonList } from '@/components/ButtonList'
 import { AmountRange } from '@/components/AmountRange'
+import { CommonButton } from '@/components/common/CommonButton'
 import { CommonCardList } from '@/components/common/CommonCardList'
-import { CommonCheckBox } from '@/components/common/CommonCheckBox'
-import { Categories } from '../../public/const/Categories'
+
 
 export default function Products() {
   return (
@@ -26,12 +28,19 @@ export default function Products() {
           <main className={styles.main}>
             <div className={classes.container}>
               <div className={classes.left_column}>
-                Left
-                {/* コンポーネント単位で表示する */}
-                <CheckBoxList />
+                <CheckBoxList
+                  heading='Department'
+                  checkBoxes={Department}
+                />
+                <CheckBoxList
+                  heading='Category'
+                  checkBoxes={Categories}
+                />
                 <ButtonList />
                 <AmountRange />
-                <CommonCheckBox checkBoxes={Categories}/>
+                <CommonButton
+                  text={'Save'}
+                />
               </div>
               <div className={classes.right_column}>
                 <CommonCardList

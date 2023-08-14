@@ -1,0 +1,11 @@
+.check_box_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+
+  .heading {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    font-family: var(--font-family-sub);
+  }
+}
