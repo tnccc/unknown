@@ -9,7 +9,7 @@
     gap: 0 80px;
     max-width: var(--max-width);
     margin: 64px auto 0;
-    padding-inline: calcClamp(60, 80, $minViewport, $maxViewport);
+    padding-inline: calcClamp(48, 64, $minViewport, $maxViewport);
 
     .left_column {
       display: flex;
