@@ -35,11 +35,30 @@ export default function Products() {
                 <CheckBoxList
                   heading='Category'
                   checkBoxes={Categories}
+                  styles={{
+                    paddingBlockStart: '16px',
+                    borderBlockStart: '1px solid var(--gray)'
+                  }}
                 />
-                <ButtonList />
+                <ButtonList 
+                  heading='Size'
+                  buttonItems={
+                    [
+                      {size: 'S', value: 'S'},
+                      {size: 'M', value: 'M'},
+                      {size: 'L', value: 'L'},
+                      {size: 'XL', value: 'XL'},
+                    ]
+                  }
+                  styles={{
+                    paddingBlockStart: '16px',
+                    borderBlockStart: '1px solid var(--gray)'
+                  }}
+                />
                 <AmountRange />
                 <CommonButton
                   text={'Save'}
+                  variant={'outline'}
                 />
               </div>
               <div className={classes.right_column}>

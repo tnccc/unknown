@@ -13,7 +13,10 @@ export const CommonButton = ({ text, variant = 'default', icon = 'default' }: Pr
 
   return(
     <>
-      <button className={buttonClasses}>
+      <button
+        type='button'
+        className={buttonClasses}
+      >
         <span className={classes.heart}>{icon === 'heart' ? <Heart /> : ''}</span>
         <div>{text}</div>
         <span className={classes.arrow}>{icon === 'arrow' ? <Arrow /> : ''}</span>

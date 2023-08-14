@@ -1,0 +1,45 @@
+.amount_range {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-block-start: 16px;
+  border-block-start: 1px solid var(--gray);
+
+  .heading {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    font-family: var(--font-family-sub);
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-sub);
+
+    .input_box {
+      position: relative;
+  
+      > input {
+        width: 100%;
+        padding: 8px 8px 8px 48px;
+        border: 1px solid var(--gray);
+  
+        &::placeholder {
+          color: var(--gray);
+        }
+      }
+  
+      .icon {
+        position: absolute;
+        top: 11px;
+        left: 21px;
+        font-size: var(--font-size-medium);
+      }
+    }
+
+    span {
+      display: inline-block;
+      margin-inline: 8px;
+    }
+  }
+}
