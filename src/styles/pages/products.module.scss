@@ -1,20 +1,25 @@
+@use '../mixin' as *;
+@use '../function' as *;
+
 .pages {
-  --left-column-width: 25%;
+  --left-column-width: 320px;
 
   .container {
     display: flex;
     gap: 0 80px;
     max-width: var(--max-width);
     margin: 64px auto 0;
-    padding-inline: 80px;
+    padding-inline: calcClamp(60, 80, $minViewport, $maxViewport);
 
     .left_column {
-      flex: 1 0 var(--left-column-width);
-      padding-inline: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: var(--left-column-width);
     }
 
     .right_column {
-      flex: auto;
+      width: calc(100% - 80px);
     }
   }
 }

@@ -1,0 +1,9 @@
+.select_button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-block: 8px;
+  font-size: var(--font-size-medium);
+  font-family: var(--font-family-sub);
+  border: 1px solid var(--gray);
+}
