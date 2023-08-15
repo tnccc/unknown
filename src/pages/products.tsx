@@ -12,7 +12,6 @@ import { AmountRange } from '@/components/AmountRange'
 import { CommonButton } from '@/components/common/CommonButton'
 import { CommonCardList } from '@/components/common/CommonCardList'
 
-
 export default function Products() {
   return (
     <>

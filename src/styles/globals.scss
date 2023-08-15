@@ -27,6 +27,7 @@
   --font-size-x-large: 32px;
   --font-size-large: 16px;
   --font-size-medium: 14px;
+  --font-size-small: 12px;
   --font-size-min: 10px;
 
   // z-index
@@ -37,6 +38,12 @@
 
   // transition
   --transition-time: .3s;
+
+  --page-padding: #{calcClamp(48, 64, $minViewport, $maxViewport)};
+
+  @include mediaScreen('tablet') {
+    --page-padding: 24px;
+  }
 }
 
 html,

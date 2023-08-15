@@ -1,0 +1,40 @@
+.color_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .heading {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    font-family: var(--font-family-sub);
+  }
+
+  .container {
+    display: flex;
+    gap: 10px;
+
+    button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--gray);
+  
+      &.white {
+        background-color: var(--white);
+      }
+  
+      &.black {
+        background-color: var(--black);
+      }
+  
+      &.gray {
+        background-color: var(--gray);
+      }
+  
+      &.red {
+        background-color: var(--red);
+      }
+    }
+  }
+
+}
