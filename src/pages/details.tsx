@@ -10,6 +10,11 @@ import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
 import { SliderArrow } from '../components/icon/SliderArrow';
 import { details as images } from '../../public/const/details';
+import { ColorList } from '@/components/ColorList';
+import { ButtonList } from '@/components/ButtonList';
+import { QuantityControl } from '@/components/QuantityControl';
+import { CommonButton } from '@/components/common/CommonButton';
+
 export default function details() {
   const splideRef = useRef<Splide | null>(null);
 
@@ -82,7 +87,43 @@ export default function details() {
               </div>
             </div>
             <div className={classes.right_column}>
-              Right
+              <div className={classes.heading}>
+                {/* データ取得方法が未定の為、一旦ベタで書く */}
+                <div className={classes.title}>
+                  <span>MEN'S</span>
+                  <h2>Basic Tee</h2>
+                </div>
+                <div className={classes.price}>
+                  <span>5000</span>
+                </div>
+              </div>
+              <div className={classes.color}>
+                <ColorList
+                  items={['white', 'black', 'gray', 'red']}
+                />
+              </div>
+              <div className={classes.size}>
+                <ButtonList 
+                  heading='Size'
+                  buttonItems={
+                    [
+                      {size: 'S', value: 'S'},
+                      {size: 'M', value: 'M'},
+                      {size: 'L', value: 'L'},
+                      {size: 'XL', value: 'XL'},
+                    ]
+                  }
+                />
+              </div>
+              <div className={classes.quantity}>
+                <h3>Quantity</h3>
+                <QuantityControl />
+              </div>
+              <div className={classes.button}>
+                <CommonButton
+                  text={'Add to Cart'}
+                />
+              </div>
             </div>
           </div>
         </main>

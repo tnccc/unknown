@@ -9,17 +9,25 @@
     gap: 0 80px;
     max-width: var(--max-width);
     margin: 64px auto 0;
-    padding-inline: calcClamp(48, 64, $minViewport, $maxViewport);
+    padding-inline: var(--page-padding);
 
     .left_column {
       display: flex;
       flex-direction: column;
       gap: 24px;
       width: var(--left-column-width);
+
+      @include mediaScreen('tablet') {
+        display: none;
+      }
     }
 
     .right_column {
       width: calc(100% - 80px);
+
+      @include mediaScreen('tablet') {
+        width: 100%;
+      }
     }
   }
 }

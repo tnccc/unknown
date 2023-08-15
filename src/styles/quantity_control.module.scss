@@ -1,0 +1,32 @@
+@use 'mixin' as *;
+@use 'function' as *;
+
+.quantity_control {
+  display: flex;
+  align-items: center;
+
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calcClamp(32, 40, $minViewport, $maxViewport);
+    height: calcClamp(32, 40, $minViewport, $maxViewport);
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-sub);
+    border: 1px solid var(--border-color);
+  }
+
+  button {
+    transition: 
+      color var(--transition-time),
+      background-color var(--transition-time),
+      border var(--transition-time)
+    ;
+
+    &:hover {
+      color: var(--white);
+      background-color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+    }
+  }
+}

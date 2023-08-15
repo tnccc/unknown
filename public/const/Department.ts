@@ -4,11 +4,15 @@ export const Department = [
     checked: false,
   },
   {
-    label: 'Kids',
+    label: 'Women',
     checked: false,
   },
   {
-    label: 'Women',
+    label: 'Unisex',
+    checked: false,
+  },
+  {
+    label: 'Kids',
     checked: false,
   },
 ]
