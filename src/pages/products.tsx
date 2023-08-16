@@ -43,10 +43,10 @@ export default function Products() {
                   heading='Size'
                   buttonItems={
                     [
-                      {size: 'S', value: 'S'},
-                      {size: 'M', value: 'M'},
-                      {size: 'L', value: 'L'},
-                      {size: 'XL', value: 'XL'},
+                      {id: 1, value: 'S'},
+                      {id: 2, value: 'M'},
+                      {id: 3, value: 'L'},
+                      {id: 4, value: 'XL'},
                     ]
                   }
                   styles={{

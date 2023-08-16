@@ -1,6 +1,7 @@
 import classes from '@/styles/amount_range.module.scss'
 
 export const AmountRange = () => {
+
   return (
     <>
       <div className={classes.amount_range}>
