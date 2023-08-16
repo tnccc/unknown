@@ -2,21 +2,17 @@ import { useState } from 'react'
 import classes from '@/styles/common/select_button.module.scss'
 
 type Props = {
-  buttonItems: {
-    size: string;
-    value: string;
-  }[]
+  callback?: any
 }
 
-export const CommonSelectButton = ({buttonItems}: Props) => {
-  const [selectedButton, setSelectedButton] = useState<string | null>(null);
-  const clickHandler = (value: string) => {
-    setSelectedButton(prevSelectButton => (prevSelectButton === value ? null : value))
-  }
+export const CommonSelectButton = ({callback}: Props) => {
   
   return(
     <>
-      {buttonItems.map((buttonItem: any) => (
+      <button onClick={() => callback(1)}>
+        テスト
+      </button>
+      {/* {buttonItems.map((buttonItem: any) => (
         <button 
           className={`${classes.select_button} ${selectedButton === buttonItem.value ? classes.selected : ''}`}
           value={buttonItem.value}
@@ -25,7 +21,7 @@ export const CommonSelectButton = ({buttonItems}: Props) => {
         >
           {buttonItem.size}
         </button>
-        ))}
+        ))} */}
     </>
   )
 }

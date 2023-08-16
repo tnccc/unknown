@@ -10,8 +10,13 @@ import { CommonSlider } from '@/components/common/CommonSlider'
 import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 import { CommonCardList } from '@/components/common/CommonCardList'
 import { AllItems } from '../../public/const/Allitems'
+import { Item } from '../../public/const/Allitems'
 
-export default function Home(props: any) {
+export default function Home() {
+  const filteredList = (): Item[] => {
+    return AllItems.filter((item: any) => item.id < 12)
+  }
+  
   return (
     <>
       <Head>
@@ -29,7 +34,7 @@ export default function Home(props: any) {
             <div className={classes.section}>
               <SectionHeading heading={'New Arrivals'} />
               <CommonSlider 
-                items={AllItems}
+                items={filteredList()}
                 rewind={true}
               />
               <div className={classes.category_list}>
@@ -76,7 +81,7 @@ export default function Home(props: any) {
                   heading={'RANKING'}
                 />
                 <div className={classes.ranking_list}>
-                  <CommonCardList items={AllItems}/>
+                  <CommonCardList items={filteredList()}/>
                 </div>
               </div>
             </section>
