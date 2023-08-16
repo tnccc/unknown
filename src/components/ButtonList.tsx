@@ -18,7 +18,7 @@ type ButtonItem = {
 
 export const ButtonList = ({heading, buttonItems , styles}: Props) => {
   const [selectedItemId, setSelectedItemId] = useState<number[]>([])
-  const toggleSelection = (id: number) => {
+  const selectHandler = (id: number) => {
     setSelectedItemId((prevSelectedIds): any => {
       const exist = prevSelectedIds.includes(id);
       if (exist) {
@@ -43,7 +43,7 @@ export const ButtonList = ({heading, buttonItems , styles}: Props) => {
               label={item.value}
               key={item.id}
               isSelected={selectedItemId.includes(item.id)}
-              onSelect={() => toggleSelection(item.id)}
+              onSelect={() => selectHandler(item.id)}
             />
           ))}
         </div>

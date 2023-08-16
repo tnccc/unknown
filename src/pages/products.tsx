@@ -7,7 +7,7 @@ import { Departments } from '../../public/const/Departments'
 import { sizes } from '../../public/const/sizes'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
-import { CheckBoxList } from '@/components/CheckBoxList'
+import { CheckboxList } from '@/components/CheckboxList'
 import { ButtonList } from '@/components/ButtonList'
 import { AmountRange } from '@/components/AmountRange'
 import { CommonButton } from '@/components/common/CommonButton'
@@ -29,13 +29,13 @@ export default function Products() {
           <main className={styles.main}>
             <div className={classes.container}>
               <div className={classes.left_column}>
-                <CheckBoxList
+                <CheckboxList
                   heading='Department'
-                  checkBoxes={Departments}
+                  checkBoxItems={Departments}
                 />
-                <CheckBoxList
+                <CheckboxList
                   heading='Category'
-                  checkBoxes={Categories}
+                  checkBoxItems={Categories}
                   styles={{
                     paddingBlockStart: '16px',
                     borderBlockStart: '1px solid var(--gray)'

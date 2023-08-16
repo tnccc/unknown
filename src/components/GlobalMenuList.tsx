@@ -1,5 +1,5 @@
 import classes from '@/styles/global/menu_list.module.scss'
-import { CommonCheckBox } from "./common/CommonCheckBox"
+import { CommonCheckBox } from "./common/CommonCheckbox"
 
 type Props = {
   label: string;

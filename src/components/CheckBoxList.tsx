@@ -1,13 +1,36 @@
 import classes from '@/styles/check_box_list.module.scss'
-import { CommonCheckBox } from './common/CommonCheckBox'
+import { CommonCheckbox } from './common/CommonCheckbox';
+import { useState } from 'react';
 
 type Props = {
   heading: string;
-  checkBoxes: any;
+  checkBoxItems: {
+    id: number;
+    label: string;
+    checked: boolean;
+  }[];
   styles?: React.CSSProperties;
 }
 
-export const CheckBoxList = ({heading, checkBoxes, styles}: Props) => {
+type CheckBoxItem = {
+  id: number;
+  label: string;
+  checked: boolean;
+}
+
+export const CheckboxList = ({heading, checkBoxItems, styles}: Props) => {
+  const [checkedBoxId, setCheckedBoxId] = useState<number[]>([])
+  const checkHandler = (id: number) => {
+    setCheckedBoxId((prevSelectedIds): any => {
+      const exist = prevSelectedIds.includes(id)
+      if(exist) {
+        return prevSelectedIds.filter((itemId: number) => itemId !== id)
+      }
+      if(!exist) {
+        return [...prevSelectedIds, id]
+      }
+    })
+  }
 
   return (
     <>
@@ -16,10 +39,15 @@ export const CheckBoxList = ({heading, checkBoxes, styles}: Props) => {
         style={styles}
       >
         <div className={classes.heading}>{heading}</div>
-        <CommonCheckBox 
-          checkBoxes={checkBoxes}
-          total={true}
-        />
+        {checkBoxItems.map((item: CheckBoxItem) => (
+          <CommonCheckbox
+            checkBoxItem={item}
+            total={true}
+            key={item.id}
+            isChecked={checkedBoxId.includes(item.id)}
+            onCheck={() => checkHandler(item.id)}
+          />
+        ))}
       </div>
     </>
   )
