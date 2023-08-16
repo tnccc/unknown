@@ -1,4 +1,4 @@
-export const Department = [
+export const Departments = [
   {
     id: 1,
     label: 'Men',

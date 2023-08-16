@@ -4,27 +4,32 @@ import { CommonSelectButton } from './common/CommonSelectButton'
 
 type Props = {
   heading: string;
-  buttonItems: any;
+  buttonItems: {
+    id: number;
+    value: string;
+  }[];
   styles?: React.CSSProperties;
-  selectedItemId?: number[] // 子コンポーネントからのemitを受けて、配列に追加/削除
 }
 
-export const ButtonList = ({heading ,buttonItems, styles}: Props) => {
-  const test = (message: string) => console.log(message)
-  // const [selected, setSelected] = useState()
-  // const test = (id: number) => {
-  //   const exist = selectedItemId.includes(id);
-  //   // emitされてきたIDが既に選択済みだった場合は配列から削除
-  //   if (exist) {
-  //     selectedItemId = selectedItemId.filter(itemId !== id);
-  //   }
-  //   // emitされてきたIDが未選択だった場合には配列についか
-  //   if (!exist) {
-  //     selectedItemId.push(id);
-  //   }
-  // }
+type ButtonItem = {
+  id: number;
+  value: string;
+};
 
-  // const isSelected = (id) => selectedItemId.includes(id);
+export const ButtonList = ({heading, buttonItems , styles}: Props) => {
+  const [selectedItemId, setSelectedItemId] = useState<number[]>([])
+  const toggleSelection = (id: number) => {
+    setSelectedItemId((prevSelectedIds): any => {
+      const exist = prevSelectedIds.includes(id);
+      if (exist) {
+        return prevSelectedIds.filter((itemId: number) => itemId !== id);
+      } 
+      if (!exist) {
+        return [...prevSelectedIds, id];
+      }
+    });
+  };
+
   return (
     <>
       <div
@@ -33,14 +38,14 @@ export const ButtonList = ({heading ,buttonItems, styles}: Props) => {
       >
         <div className={classes.heading}>{heading}</div>
         <div className={classes.container}>
-          {/* 下位のコンポーネントにはselected */}
-          {/* <CommonSelectButton 
-            selected={isSelected(item.id)}
-            buttonItems={buttonItems}
-          /> */}
-          <CommonSelectButton 
-            callback={test}
-          />
+          {buttonItems.map((item: ButtonItem) => (
+            <CommonSelectButton 
+              label={item.value}
+              key={item.id}
+              isSelected={selectedItemId.includes(item.id)}
+              onSelect={() => toggleSelection(item.id)}
+            />
+          ))}
         </div>
       </div>
     </>

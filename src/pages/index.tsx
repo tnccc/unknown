@@ -25,6 +25,7 @@ export default function Home() {
         <meta http-equiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"/>
       </Head>
       <div className={styles.pages}>
         <GlobalHeader />

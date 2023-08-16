@@ -3,7 +3,8 @@ import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/products.module.scss'
 import { AllItems } from '../../public/const/Allitems'
 import { Categories } from '../../public/const/Categories'
-import { Department } from '../../public/const/Department'
+import { Departments } from '../../public/const/Departments'
+import { sizes } from '../../public/const/sizes'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
 import { CheckBoxList } from '@/components/CheckBoxList'
@@ -21,6 +22,7 @@ export default function Products() {
         <meta http-equiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"/>
       </Head>
       <div className={classes.pages}>
         <GlobalHeader />
@@ -29,7 +31,7 @@ export default function Products() {
               <div className={classes.left_column}>
                 <CheckBoxList
                   heading='Department'
-                  checkBoxes={Department}
+                  checkBoxes={Departments}
                 />
                 <CheckBoxList
                   heading='Category'
@@ -41,14 +43,7 @@ export default function Products() {
                 />
                 <ButtonList 
                   heading='Size'
-                  buttonItems={
-                    [
-                      {id: 1, value: 'S'},
-                      {id: 2, value: 'M'},
-                      {id: 3, value: 'L'},
-                      {id: 4, value: 'XL'},
-                    ]
-                  }
+                  buttonItems={sizes}
                   styles={{
                     paddingBlockStart: '16px',
                     borderBlockStart: '1px solid var(--gray)'

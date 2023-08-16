@@ -1,3 +1,4 @@
+import Image from "next/image";
 import classes from '@/styles/common/button.module.scss'
 import { Arrow } from '../icon/Arrow';
 import { Heart } from '../icon/Heart';
