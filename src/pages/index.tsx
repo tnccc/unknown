@@ -16,6 +16,10 @@ export default function Home() {
   const filteredList = (): Item[] => {
     return AllItems.filter((item: any) => item.id < 12)
   }
+
+  const test = (msg: string) => {
+    console.log(msg)
+  }
   
   return (
     <>
@@ -67,6 +71,7 @@ export default function Home() {
                     <CommonButton
                       icon={'arrow'}
                       text={'Shop Now'}
+                      callback={test}
                     />
                   </div>
                   <figure className={classes.banner_figure}>

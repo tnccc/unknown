@@ -7,9 +7,10 @@ type Props = {
   text: string;
   variant?: string;
   icon?: string;
+  callback: any;
 }
 
-export const CommonButton = ({ text, variant = 'default', icon = 'default' }: Props) => {
+export const CommonButton = ({ text, variant = 'default', icon = 'default', callback }: Props) => {
   const buttonClasses = `${classes.button} ${classes[variant]}`;
 
   return(
@@ -17,6 +18,7 @@ export const CommonButton = ({ text, variant = 'default', icon = 'default' }: Pr
       <button
         type='button'
         className={buttonClasses}
+        onClick={() => callback('action')}
       >
         <span className={classes.heart}>{icon === 'heart' ? <Heart /> : ''}</span>
         <div>{text}</div>

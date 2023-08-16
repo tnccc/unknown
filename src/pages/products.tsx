@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/products.module.scss'
@@ -14,6 +15,10 @@ import { CommonButton } from '@/components/common/CommonButton'
 import { CommonCardList } from '@/components/common/CommonCardList'
 
 export default function Products() {
+  const test = (msg: string) => {
+    console.log(msg)
+  }
+
   return (
     <>
       <Head>
@@ -53,6 +58,7 @@ export default function Products() {
                 <CommonButton
                   text={'Save'}
                   variant={'outline'}
+                  callback={test}
                 />
               </div>
               <div className={classes.right_column}>
