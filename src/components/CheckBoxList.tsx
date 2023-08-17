@@ -1,5 +1,5 @@
 import classes from '@/styles/check_box_list.module.scss';
-import { CommonCheckbox } from './common/CommonCheckbox';
+import { CommonCheckBox } from './common/CommonCheckBox';
 import { useState } from 'react';
 
 type Props = {
@@ -18,7 +18,7 @@ type CheckBoxItem = {
   checked: boolean;
 }
 
-export const CheckboxList = ({heading, checkBoxItems, styles}: Props) => {
+export const CheckBoxList = ({heading, checkBoxItems, styles}: Props) => {
   const [checkedBoxId, setCheckedBoxId] = useState<number[]>([])
   const checkHandler = (id: number) => {
     setCheckedBoxId((prevSelectedIds): any => {
@@ -40,7 +40,7 @@ export const CheckboxList = ({heading, checkBoxItems, styles}: Props) => {
       >
         <div className={classes.heading}>{heading}</div>
         {checkBoxItems.map((item: CheckBoxItem) => (
-          <CommonCheckbox
+          <CommonCheckBox
             checkBoxItem={item}
             total={true}
             key={item.id}

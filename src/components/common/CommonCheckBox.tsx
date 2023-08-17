@@ -11,7 +11,7 @@ type Props = {
   isChecked: boolean;
 }
 
-export const CommonCheckbox = ({checkBoxItem, onCheck, total, isChecked}: Props) => {
+export const CommonCheckBox = ({checkBoxItem, onCheck, total, isChecked}: Props) => {
   return(
     <>
       <div className={classes.check_box}>
