@@ -13,8 +13,14 @@ export const CommonCard = ({item, link = '/', cardStyle}: CommonCard) => {
     return `${fileName}`
   }
 
-  const formattedPrice = (price: any) => {
+  const formattedPrice = (price: number) => {
     const priceStr = price.toString();
+    if(priceStr.length === 4) {
+      return `${priceStr.slice(0, 1)},${priceStr.slice(1)}`;
+    }
+    if(priceStr.length === 5) {
+      return `${priceStr.slice(0, 2)},${priceStr.slice(2)}`;
+    }
     return priceStr
   }
 
