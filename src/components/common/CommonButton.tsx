@@ -20,10 +20,18 @@ export const CommonButton = ({ text, variant = 'default', icon = 'default', call
         className={buttonClasses}
         onClick={() => callback('action')}
       >
-        <span className={classes.heart}>{icon === 'heart' ? <Heart /> : ''}</span>
+        <span className={classes.heart}>{icon === 'heart' && <Heart />}</span>
         <div>{text}</div>
-        <span className={classes.arrow}>{icon === 'arrow' ? <Arrow /> : ''}</span>
+        <span className={classes.arrow}>{icon === 'arrow' && <Arrow /> }</span>
       </button>
+    </>
+  )
+}
+
+export const Hoge = ({props = false}) => {
+  return (
+    <>
+      {props && <div>hoge</div>}
     </>
   )
 }

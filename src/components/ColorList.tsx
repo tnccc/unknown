@@ -7,7 +7,6 @@ type Items = {
 
 export const ColorList = ({items, styles}: Items) => {
 
-
   return (
     <>
       <div className={classes.color_list}>
@@ -19,6 +18,7 @@ export const ColorList = ({items, styles}: Items) => {
           {items.map((item: string) => (
             <button
               className={classes[item]}
+              
             />
           ))}
         </div>

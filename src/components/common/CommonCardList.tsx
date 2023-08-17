@@ -4,15 +4,19 @@ import { Item } from '../../../public/const/Allitems';
 
 type CommonCardListProps = {
   items: Item[];
-  cardType?: string;
+  listStyle?: React.CSSProperties;
+  cardStyle?: React.CSSProperties;
 };
 
-export const CommonCardList = ({items, cardType = 'default'}: CommonCardListProps) => {
+export const CommonCardList = ({items, listStyle, cardStyle}: CommonCardListProps) => {
   return(
     <>
-      <div className={`${classes.card_list} ${classes[cardType]}`}>
+      <div
+        className={classes.card_list}
+        style={listStyle}
+      >
         {items.map((item: any) => 
-          <CommonCard key={item.name} item={item} cardType={cardType}/>
+          <CommonCard key={item.name} item={item} cardStyle={cardStyle}/>
         )}
       </div>
     </>

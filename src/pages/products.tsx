@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState,  createContext, useContext } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/products.module.scss'
@@ -14,7 +14,11 @@ import { AmountRange } from '@/components/AmountRange'
 import { CommonButton } from '@/components/common/CommonButton'
 import { CommonCardList } from '@/components/common/CommonCardList'
 
+export const CategoriesContext = createContext(null)
+
 export default function Products() {
+  const [categoriesId, setCategoriesId] = useState<number[]>([])
+
   const test = (msg: string) => {
     console.log(msg)
   }
@@ -23,7 +27,7 @@ export default function Products() {
     <>
       <Head>
         <title>UNKNOWN | Products</title>
-        <meta name="description" content="UNKNWON SHOP" />
+        <meta name="description" content="UNKNOWN SHOP" />
         <meta http-equiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico" />
@@ -63,8 +67,14 @@ export default function Products() {
               </div>
               <div className={classes.right_column}>
                 <CommonCardList
-                  cardType='three'
                   items={AllItems} 
+                  listStyle={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+                  }}
+                  cardStyle={{
+                    width: '100%'
+                  }}
                 />
               </div>
             </div>

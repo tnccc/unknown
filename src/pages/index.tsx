@@ -11,6 +11,7 @@ import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 import { CommonCardList } from '@/components/common/CommonCardList'
 import { AllItems } from '../../public/const/Allitems'
 import { Item } from '../../public/const/Allitems'
+import { Hoge } from '@/components/common/CommonButton'
 
 export default function Home() {
   const filteredList = (): Item[] => {
@@ -20,12 +21,12 @@ export default function Home() {
   const test = (msg: string) => {
     console.log(msg)
   }
-  
+
   return (
     <>
       <Head>
         <title>UNKNOWN</title>
-        <meta name="description" content="UNKNWON SHOP" />
+        <meta name="description" content="UNKNOWN SHOP" />
         <meta http-equiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico" />
@@ -42,6 +43,7 @@ export default function Home() {
                 items={filteredList()}
                 rewind={true}
               />
+              <Hoge props={false}/>
               <div className={classes.category_list}>
                 <CommonCardLarge 
                   link={'/products'}

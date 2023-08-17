@@ -4,11 +4,11 @@ import classes from '@/styles/common/card.module.scss'
 type CommonCard = {
   item: any;
   link?: string;
-  cardType?: string;
+  cardStyle?: React.CSSProperties;
   explanation?: boolean;
 }
 
-export const CommonCard = ({item, link = '/', cardType = 'default'}: CommonCard) => {
+export const CommonCard = ({item, link = '/', cardStyle}: CommonCard) => {
   const getImage = (fileName: string): string => {
     return `${fileName}`
   }
@@ -20,7 +20,10 @@ export const CommonCard = ({item, link = '/', cardType = 'default'}: CommonCard)
 
   return(
     <>
-      <div className={`${classes.card} ${classes[cardType]}`}>
+      <div
+        className={classes.card}
+        style={cardStyle}
+      >
         <Link href={link}>
           <div className={classes.image}>
             <img src={getImage(item?.path)} alt={item.name} />
