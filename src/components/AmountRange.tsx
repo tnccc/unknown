@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import classes from '@/styles/amount_range.module.scss'
 
 export const AmountRange = () => {

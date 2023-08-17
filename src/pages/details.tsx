@@ -6,6 +6,7 @@ import Head from 'next/head'
 import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/details.module.scss'
 import slider from '@/styles/common/slider.module.scss'
+import { sizes } from '../../public/const/sizes';
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
 import { SliderArrow } from '../components/icon/SliderArrow';
@@ -16,6 +17,9 @@ import { QuantityControl } from '@/components/QuantityControl';
 import { CommonButton } from '@/components/common/CommonButton';
 
 export default function details() {
+  const test = (msg: string) => {
+    console.log(msg)
+  }
   const splideRef = useRef<Splide | null>(null);
 
   const options = {
@@ -105,14 +109,7 @@ export default function details() {
               <div className={classes.size}>
                 <ButtonList 
                   heading='Size'
-                  buttonItems={
-                    [
-                      {size: 'S', value: 'S'},
-                      {size: 'M', value: 'M'},
-                      {size: 'L', value: 'L'},
-                      {size: 'XL', value: 'XL'},
-                    ]
-                  }
+                  buttonItems={sizes}
                 />
               </div>
               <div className={classes.quantity}>
@@ -121,6 +118,7 @@ export default function details() {
               </div>
               <div className={classes.button}>
                 <CommonButton
+                  callback={test}
                   text={'Add to Cart'}
                 />
               </div>

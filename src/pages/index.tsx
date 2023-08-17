@@ -11,20 +11,26 @@ import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 import { CommonCardList } from '@/components/common/CommonCardList'
 import { AllItems } from '../../public/const/Allitems'
 import { Item } from '../../public/const/Allitems'
+import { Hoge } from '@/components/common/CommonButton'
 
 export default function Home() {
   const filteredList = (): Item[] => {
     return AllItems.filter((item: any) => item.id < 12)
   }
-  
+
+  const test = (msg: string) => {
+    console.log(msg)
+  }
+
   return (
     <>
       <Head>
         <title>UNKNOWN</title>
-        <meta name="description" content="UNKNWON SHOP" />
+        <meta name="description" content="UNKNOWN SHOP" />
         <meta http-equiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"/>
       </Head>
       <div className={styles.pages}>
         <GlobalHeader />
@@ -37,6 +43,7 @@ export default function Home() {
                 items={filteredList()}
                 rewind={true}
               />
+              <Hoge props={false}/>
               <div className={classes.category_list}>
                 <CommonCardLarge 
                   link={'/products'}
@@ -66,6 +73,7 @@ export default function Home() {
                     <CommonButton
                       icon={'arrow'}
                       text={'Shop Now'}
+                      callback={test}
                     />
                   </div>
                   <figure className={classes.banner_figure}>

@@ -1,4 +1,4 @@
-export const size = [
+export const sizes = [
   {
     id: 1,
     value: 'S',
