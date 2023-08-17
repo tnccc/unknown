@@ -1,4 +1,4 @@
-import classes from '@/styles/check_box_list.module.scss'
+import classes from '@/styles/check_box_list.module.scss';
 import { CommonCheckbox } from './common/CommonCheckbox';
 import { useState } from 'react';
 
