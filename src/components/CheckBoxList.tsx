@@ -18,8 +18,6 @@ type CheckBoxItem = {
   checked: boolean;
 }
 
-// provider内のデータだけ受け取れるようにするといい？
-
 export const CheckboxList = ({heading, checkBoxItems, styles}: Props) => {
   const [checkedBoxId, setCheckedBoxId] = useState<number[]>([])
   const checkHandler = (id: number) => {
