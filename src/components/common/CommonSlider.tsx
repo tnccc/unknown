@@ -7,7 +7,6 @@ import { CommonCard } from './CommonCard';
 import { SliderArrow } from '../icon/SliderArrow';
 import { Item } from '../../../public/const/allItems';
 
-
 type SliderProps = {
   items: Item[];
   perPage?: number;
