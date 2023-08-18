@@ -9,8 +9,8 @@ import { CommonButton } from '@/components/common/CommonButton'
 import { CommonSlider } from '@/components/common/CommonSlider'
 import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 import { CommonCardList } from '@/components/common/CommonCardList'
-import { allItems } from '../../public/const/allItems'
-import { Item } from '../../public/const/allItems'
+import { allItems } from '../../public/const/AllItems'
+import { Item } from '../../public/const/AllItems'
 import { FadeInElements } from '@/components/FadeInElements'
 
 export default function Home() {
