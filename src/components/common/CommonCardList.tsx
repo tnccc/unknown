@@ -15,8 +15,10 @@ export const CommonCardList = ({items, listStyle, cardStyle}: CommonCardListProp
         className={classes.card_list}
         style={listStyle}
       >
-        {items.map((item: any) => 
-          <CommonCard key={item.name} item={item} cardStyle={cardStyle}/>
+        {items.map((item) => 
+          <CommonCard key={item.name}
+          link={`/products/${item.id}`}
+          item={item} cardStyle={cardStyle}/>
         )}
       </div>
     </>

@@ -1,27 +1,27 @@
 export const Categories = [
   {
     id: 1,
-    label: 'Tees',
+    label: 'TEES',
     checked: false,
   },
   {
     id: 2,
-    label: 'Shirts',
+    label: 'SHIRTS',
     checked: false,
   },
   {
     id: 3,
-    label: 'Jackets',
+    label: 'JACKETS',
     checked: false,
   },
   {
     id: 4,
-    label: 'Sweaters',
+    label: 'SWEATERS',
     checked: false,
   },
   {
     id: 5,
-    label: 'Bottoms',
+    label: 'BOTTOMS',
     checked: false,
   }
 ]

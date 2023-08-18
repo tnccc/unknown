@@ -9,6 +9,8 @@ type Props = {
     value: string;
   }[];
   styles?: React.CSSProperties;
+  checkedBoxIds: number[]; // added
+  onChangeBoxId(id: number): void; // added
 }
 
 type ButtonItem = {
@@ -16,19 +18,23 @@ type ButtonItem = {
   value: string;
 };
 
-export const ButtonList = ({heading, buttonItems , styles}: Props) => {
-  const [selectedItemId, setSelectedItemId] = useState<number[]>([])
+export const ButtonList = ({heading, buttonItems , styles, checkedBoxIds, onChangeBoxId}: Props) => {
+  // const [selectedItemId, setSelectedItemId] = useState<number[]>([])
+  // const selectHandler = (id: number) => {
+  //   setSelectedItemId((prevSelectedIds): any => {
+  //     const exist = prevSelectedIds.includes(id);
+  //     if (exist) {
+  //       return prevSelectedIds.filter((itemId: number) => itemId !== id);
+  //     } 
+  //     if (!exist) {
+  //       return [...prevSelectedIds, id];
+  //     }
+  //   });
+  // };
+
   const selectHandler = (id: number) => {
-    setSelectedItemId((prevSelectedIds): any => {
-      const exist = prevSelectedIds.includes(id);
-      if (exist) {
-        return prevSelectedIds.filter((itemId: number) => itemId !== id);
-      } 
-      if (!exist) {
-        return [...prevSelectedIds, id];
-      }
-    });
-  };
+    onChangeBoxId(id)
+  }
 
   return (
     <>
@@ -42,7 +48,7 @@ export const ButtonList = ({heading, buttonItems , styles}: Props) => {
             <CommonSelectButton 
               label={item.value}
               key={item.id}
-              isSelected={selectedItemId.includes(item.id)}
+              isSelected={checkedBoxIds?.includes(item.id)}
               onSelect={() => selectHandler(item.id)}
             />
           ))}

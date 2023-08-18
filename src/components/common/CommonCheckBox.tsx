@@ -6,7 +6,7 @@ type Props = {
     label: string;
     checked: boolean;
   };
-  total?: boolean;
+  total?: number;
   onCheck: () => void;
   isChecked: boolean;
 }

@@ -1,26 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState,  createContext, useContext } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/products.module.scss'
-import { AllItems } from '../../public/const/Allitems'
-import { Categories } from '../../public/const/Categories'
-import { Departments } from '../../public/const/Departments'
+import { AllItems } from '../../../public/const/Allitems'
+import { Categories } from '../../../public/const/Categories'
+import { Departments } from '../../../public/const/Departments'
+import { sizes } from '../../../public/const/sizes'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
 import { CheckBoxList } from '@/components/CheckBoxList'
+import { ButtonList } from '@/components/ButtonList'
 import { AmountRange } from '@/components/AmountRange'
+import { CommonButton } from '@/components/common/CommonButton'
 import { CommonCardList } from '@/components/common/CommonCardList'
 
 
 type BoxFilter = {
-  departments: number[];
-  categories: number[];
-  sizes: number[];
-  minPrice: number | null;
-  maxPrice: number | null;
+  departments: number[]
+  categories: number[]
+  sizes: number[]
+  minPrice: number | null
+  maxPrice: number | null
 }
 
 export default function Products() {
+  const [categoriesId, setCategoriesId] = useState<number[]>([])
+
+  const test = (msg: string) => {
+    console.log(msg)
+  }
+
   const [selectedBox, setBox] = useState<BoxFilter>({
     departments: [],
     categories: [],
@@ -29,17 +38,16 @@ export default function Products() {
     maxPrice: null
   })
 
-  const onPushFilterId = (
-    itemName: 'departments' | 'categories', 
-    id: number
-  ) => {
+  /**
+   * チェックボックスの値を追加する
+   */
+  const onPushFilterId = (itemName: "departments" | "categories" | "sizes", id: number) => {
     const prevIds = [...selectedBox[itemName]]
     const exist = prevIds.includes(id)
     if(exist) {
-      const updateIds = prevIds.filter((itemId: number) => itemId !== id)
       setBox({
         ...selectedBox,
-        [itemName]: updateIds
+        [itemName]: prevIds.filter((itemId: number) => itemId !== id)
       })
     }
     if(!exist) {
@@ -59,28 +67,40 @@ export default function Products() {
   }
 
   const filteredItems = AllItems.filter(item => {
+    // departmentの名前の配列
     const departmentNames = selectedBox.departments.map(id => {
-      return Departments.find(item => item.id === id)?.label
+      return Departments.find(item => item.id === id)?.label.toUpperCase()
     })
+    // categoryの名前の配列
     const categoriesNames = selectedBox.categories.map(id => {
       return Categories.find(item => item.id === id)?.label.toUpperCase()
     })
+    // departmentが選択されている場合
     if (selectedBox.departments.length !== 0) {
+      // departmentの名前の配列にitemのdepartmentが含まれていない場合は除外
       if (!departmentNames.includes(item.department.toUpperCase())) {
         return false
       }
     }
+    // categoryが選択されている場合
     if (selectedBox.categories.length !== 0) {
+      // categoryの名前の配列にitemのcategoryが含まれていない場合は除外
       if (!categoriesNames.includes(item.category.toUpperCase())) {
         return false
       }
     }
+    // sizeが選択されている場合
+    if (selectedBox.sizes.length === 0) {}
+    // priceの最小値が設定されている場合
     if (selectedBox.minPrice !== null) {
+      // 商品の値段が最小値より小さい場合は除外
       if (item.price < selectedBox.minPrice) {
         return false
       }
     }
+    // priceの最大値が設定されている場合
     if (selectedBox.maxPrice !== null) {
+      // 商品の値段が最大値より大きい場合は除外
       if (item.price > selectedBox.maxPrice) {
         return false
       }
@@ -91,8 +111,7 @@ export default function Products() {
   // フィルターの処理はHooksに定義したい
   // const filteredItems2 = useFilteredItems(AllItems, selectedBox)
 
-  console.log("Department", selectedBox.departments)
-  console.log("Categories", selectedBox.categories)
+  console.log("selectedBox", selectedBox.minPrice, selectedBox.maxPrice)
 
   return (
     <>
@@ -122,7 +141,7 @@ export default function Products() {
                   checkBoxItems={Categories}
                   styles={{
                     paddingBlockStart: '16px',
-                    borderBlockStart: '1px solid var(--border-color)'
+                    borderBlockStart: '1px solid var(--gray)'
                   }}
                   checkedBoxIds={selectedBox.categories}
                   onChangeBoxId={(boxId) => {
@@ -140,7 +159,7 @@ export default function Products() {
                   items={filteredItems} 
                   listStyle={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
                   }}
                   cardStyle={{
                     width: '100%'

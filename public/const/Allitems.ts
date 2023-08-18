@@ -12,7 +12,7 @@ export type Item = {
 export const AllItems: Item[]= [
   {
     id: '000000',
-    name: 'Basic Tee',
+    name: 'BASIC TEE',
     price: 5000,
     department: 'unisex',
     category: 'Tees',
@@ -22,7 +22,7 @@ export const AllItems: Item[]= [
   }, 
   {
     id: '000001',
-    name: 'Logo Hoodie',
+    name: 'LOGO HOODIE',
     price: 18000,
     department: 'men',
     category: 'sweaters',
@@ -327,6 +327,16 @@ export const AllItems: Item[]= [
     department: 'Women',
     category: 'bottoms',
     path: '/images/items/women/bottoms/w_relax_corduroy_pants.jpg',
+    released_at: '2023-04-01',
+    sizes: ['S', 'M', 'L','XL']
+  },
+  {
+    id: '000031',
+    name: 'Kids Print Tee',
+    price: 2800,
+    department: 'Kids',
+    category: 'Tees',
+    path: '/images/items/kids/tees/k_kids_print_tee.jpg',
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
