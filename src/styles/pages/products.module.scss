@@ -2,16 +2,19 @@
 @use '../function' as *;
 
 .pages {
-  --left-column-width: 320px;
+  --left-column-width: 240px;
+  --gap: 80px;
 
   .container {
     display: flex;
-    gap: 0 80px;
+    gap: 0 var(--gap);
     max-width: var(--max-width);
+    width: 100%;
     margin: 64px auto 0;
     padding-inline: var(--page-padding);
     
     .left_column {
+      flex: 0 0 auto;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -23,7 +26,8 @@
     }
 
     .right_column {
-      width: calc(100% - 80px);
+      flex: 1;
+      width: calc(100% - var(--gap));
 
       @include mediaScreen('tablet') {
         width: 100%;

@@ -32,7 +32,10 @@ export const CommonCard = ({item, link = '/', cardStyle}: CommonCard) => {
       >
         <Link href={link}>
           <div className={classes.image}>
-            <img src={getImage(item?.path)} alt={item.name} />
+            <img 
+              src={getImage(item?.path)} alt={item.name}
+              loading='lazy'
+            />
           </div>
           <div className={classes.description}>
             <h3>{item.name}</h3>

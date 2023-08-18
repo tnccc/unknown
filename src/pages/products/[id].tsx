@@ -1,32 +1,50 @@
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
+import { useRouter } from 'next/router' 
 import { useRef } from 'react';
+
 // @ts-ignore spilideの型定義を無視
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import Head from 'next/head'
 import styles from '@/styles/base.module.scss'
 import classes from '@/styles/pages/details.module.scss'
 import slider from '@/styles/common/slider.module.scss'
-import { sizes } from '../../public/const/sizes';
+import { sizes } from '../../../public/const/sizes';
 import { GlobalHeader } from '@/components/GlobalHeader'
 import { GlobalFooter } from '@/components/GlobalFooter'
-import { SliderArrow } from '../components/icon/SliderArrow';
-import { details as images } from '../../public/const/details';
+import { SliderArrow } from '../../components/icon/SliderArrow';
 import { ColorList } from '@/components/ColorList';
 import { ButtonList } from '@/components/ButtonList';
 import { QuantityControl } from '@/components/QuantityControl';
 import { CommonButton } from '@/components/common/CommonButton';
+import { AllItems } from '../../../public/const/Allitems';
 
-export default function details() {
-  const test = (msg: string) => {
-    console.log(msg)
-  }
+type DetailProps = {
+  id: number;
+}
+
+const detail: NextPage<DetailProps> = ((props: any) => {
+  const id = props.id;
+  const images = props.img
+  const router = useRouter();
   const splideRef = useRef<Splide | null>(null);
-
   const options = {
     perPage: 1,
     gap: 0,
     rewind: true,
   };
+
+  const product = AllItems.find((item) => item.id === router.query.id);
+
+  console.log("product", product)
+
+  const test = (msg: string) => {
+    console.log(msg)
+  }
+
+  if(router.isFallback) {
+    return <div>loading...</div>
+  }
 
   const goToPrevSlide = () => {
     if(splideRef.current) {
@@ -39,23 +57,25 @@ export default function details() {
       splideRef.current?.go('+1');
     }
   }
-  
+
   return (
     <>
       <Head>
-        <title>UNKNOWN | 商品名を動的に取得</title>
-        <meta name="description" content="UNKNWON SHOP" />
+        <title>UNKNOWN | {props.name}</title>
+        <meta name="description" content="UNKNOWN SHOP" />
         <meta http-equiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"/>
       </Head>
+
       <div className={`${styles.pages} ${classes.pages}`}>
         <GlobalHeader />
         <main className={styles.main}>
           <div className={classes.container}>
             <div className={classes.left_column}>
               <div className={classes.image}>
-                <Splide
+                {/* <Splide
                   ref={splideRef}
                   hasTrack={false}
                   className={slider.slider}
@@ -87,7 +107,7 @@ export default function details() {
                       <SliderArrow />
                     </button>
                   </div>
-                </Splide>
+                </Splide> */}
               </div>
             </div>
             <div className={classes.right_column}>
@@ -106,12 +126,12 @@ export default function details() {
                   items={['white', 'black', 'gray', 'red']}
                 />
               </div>
-              <div className={classes.size}>
+              {/* <div className={classes.size}>
                 <ButtonList 
                   heading='Size'
                   buttonItems={sizes}
                 />
-              </div>
+              </div> */}
               <div className={classes.quantity}>
                 <h3>Quantity</h3>
                 <QuantityControl />
@@ -129,4 +149,6 @@ export default function details() {
       </div>
     </>
   )
-}
+})
+
+export default detail
