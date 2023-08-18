@@ -23,7 +23,8 @@ type CheckBoxItem = {
 export const CheckBoxList: FC<Props> = ({heading, checkBoxItems, styles, checkedBoxIds, onChangeBoxId}) => {
   const checkHandler = (id: number) => {
     onChangeBoxId(id)
-  }
+  };
+
 
   return (
     <>

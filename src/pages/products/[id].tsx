@@ -17,7 +17,7 @@ import { ColorList } from '@/components/ColorList';
 import { ButtonList } from '@/components/ButtonList';
 import { QuantityControl } from '@/components/QuantityControl';
 import { CommonButton } from '@/components/common/CommonButton';
-import { AllItems } from '../../../public/const/Allitems';
+import { allItems } from '../../../public/const/allItems';
 
 type DetailProps = {
   id: number;
@@ -34,7 +34,7 @@ const detail: NextPage<DetailProps> = ((props: any) => {
     rewind: true,
   };
 
-  const product = AllItems.find((item) => item.id === router.query.id);
+  const product = allItems.find((item: any) => item.id === router.query.id);
 
   console.log("product", product)
 

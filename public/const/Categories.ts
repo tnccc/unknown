@@ -1,4 +1,4 @@
-export const Categories = [
+export const categories = [
   {
     id: 1,
     label: 'TEES',
