@@ -7,7 +7,7 @@ export type Item = {
   path: string;
   released_at: string;
   sizes: string[];
-}
+};
 
 export const allItems: Item[]= [
   {

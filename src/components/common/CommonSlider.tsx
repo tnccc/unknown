@@ -5,7 +5,7 @@ import '@splidejs/react-splide/css';
 import classes from '@/styles/common/slider.module.scss'
 import { CommonCard } from './CommonCard';
 import { SliderArrow } from '../icon/SliderArrow';
-import { Item } from '../../../public/const/AllItems';
+import { Item } from '../../../public/const/allItems';
 
 
 type SliderProps = {

@@ -17,7 +17,7 @@ import { ColorList } from '@/components/ColorList';
 import { ButtonList } from '@/components/ButtonList';
 import { QuantityControl } from '@/components/QuantityControl';
 import { CommonButton } from '@/components/common/CommonButton';
-import { allItems } from '../../../public/const/AllItems';
+import { allItems } from '../../../public/const/allItems';
 
 type DetailProps = {
   id: number;
