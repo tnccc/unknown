@@ -9,13 +9,13 @@ import { CommonButton } from '@/components/common/CommonButton'
 import { CommonSlider } from '@/components/common/CommonSlider'
 import { CommonCardLarge } from '@/components/common/CommonCardLarge'
 import { CommonCardList } from '@/components/common/CommonCardList'
-import { AllItems } from '../../public/const/Allitems'
-import { Item } from '../../public/const/Allitems'
+import { allItems } from '../../public/const/allItems'
+import { Item } from '../../public/const/allItems'
 import { FadeInElements } from '@/components/FadeInElements'
 
 export default function Home() {
   const filteredList = (): Item[] => {
-    return AllItems.filter((item: any) => item.id < 12)
+    return allItems.filter((item: any) => item.id < 12)
   }
 
   const test = (msg: string) => {

@@ -38,7 +38,7 @@ export const CommonCard = ({item, link = '/', cardStyle}: CommonCard) => {
             />
           </div>
           <div className={classes.description}>
-            <h3>{item.name}</h3>
+            <h3>{item.name.toUpperCase()}</h3>
             <em>{formattedPrice(item.price)}</em>
           </div>
         </Link>
