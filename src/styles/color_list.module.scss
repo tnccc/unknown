@@ -34,6 +34,30 @@
       &.red {
         background-color: var(--red);
       }
+
+      &.selected {
+        &::before {
+          content: "";
+          display: block;
+          width: 28px;
+          height: 28px;
+          margin-inline: auto;
+          border: 1px solid var(--gray);
+          border-radius: 50%;
+        }
+      }
+
+      &.selected_gray {
+        &::before {
+          content: "";
+          display: block;
+          width: 28px;
+          height: 28px;
+          margin-inline: auto;
+          border: 1px solid var(--black);
+          border-radius: 50%;
+        }
+      }
     }
   }
 

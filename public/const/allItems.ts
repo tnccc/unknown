@@ -5,9 +5,17 @@ export type Item = {
   department: string;
   category: string;
   path: string;
+  images: {
+    path: string;
+  }[];
   released_at: string;
   sizes: string[];
 };
+
+const obj2: 
+  { name: string; age?: number }[] = [
+  { name: "Teru", age: 20 },
+];
 
 export const allItems: Item[]= [
   {
@@ -17,6 +25,9 @@ export const allItems: Item[]= [
     department: 'UNISEX',
     category: 'TEES',
     path: '/images/items/unisex/tees/un_basic_tee.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   }, 
@@ -27,6 +38,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'SWEATERS',
     path: '/images/items/men/sweaters/m_logo_hoodie.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -37,6 +51,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'JACKETS',
     path: '/images/items/men/jackets/m_tailored_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -47,6 +64,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'SHIRTS',
     path: '/images/items/men/shirts/m_rugby_polo.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -57,6 +77,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'TEES',
     path: '/images/items/men/tees/m_box_logo.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   }, 
@@ -67,6 +90,9 @@ export const allItems: Item[]= [
     department: 'UNISEX',
     category: 'TEES',
     path: '/images/items/unisex/tees/un_heavy_weight.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -77,6 +103,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'TEES',
     path: '/images/items/men/tees/m_neon_logo.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -87,6 +116,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'TEES',
     path: '/images/items/men/tees/m_crown_log.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -97,6 +129,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'TEES',
     path: '/images/items/men/tees/m_pocket_tee.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   }, 
@@ -107,6 +142,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'SWEATERS',
     path: '/images/items/men/sweaters/m_basic_sweat.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -117,6 +155,9 @@ export const allItems: Item[]= [
     department: 'UNISEX',
     category: 'SWEATERS',
     path: '/images/items/unisex/sweaters/un_light_weight_hoodie.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL']
   },
@@ -127,6 +168,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'SHIRTS',
     path: '/images/items/men/shirts/m_oxford_shirts.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -137,6 +181,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'SHIRTS',
     path: '/images/items/men/shirts/m_denim_shirts.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -147,6 +194,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'SHIRTS',
     path: '/images/items/men/shirts/m_linen_shirts.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -157,6 +207,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'JACKETS',
     path: '/images/items/men/jackets/m_leather_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -167,6 +220,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'JACKETS',
     path: '/images/items/men/jackets/m_boa_leather_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -177,6 +233,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'JACKETS',
     path: '/images/items/men/jackets/m_smooth_slim_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -187,6 +246,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'JACKETS',
     path: '/images/items/men/jackets/m_denim_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -197,6 +259,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'BOTTOMS',
     path: '/images/items/men/bottoms/m_chino_pants.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -207,6 +272,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'BOTTOMS',
     path: '/images/items/men/bottoms/m_skinny_jeans.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -217,6 +285,9 @@ export const allItems: Item[]= [
     department: 'MEN',
     category: 'BOTTOMS',
     path: '/images/items/men/bottoms/m_bleach_wash_denim.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -227,6 +298,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'TEES',
     path: '/images/items/women/tees/w_one_cares_tee.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -237,6 +311,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'TEES',
     path: '/images/items/women/tees/w_logo_tee.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -247,6 +324,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'TEES',
     path: '/images/items/women/tees/w_circle_logo_tee.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -257,6 +337,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'SWEATERS',
     path: '/images/items/women/sweaters/w_slim_sweat.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -267,6 +350,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'SWEATERS',
     path: '/images/items/women/sweaters/w_cropped_hoodie.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -277,6 +363,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'SHIRTS',
     path: '/images/items/women/shirts/w_satin_shirts.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -287,6 +376,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'SHIRTS',
     path: '/images/items/women/shirts/w_standard_shirts.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -297,6 +389,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'JACKETS',
     path: '/images/items/women/jackets/w_riders_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -307,6 +402,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'JACKETS',
     path: '/images/items/women/jackets/w_cropped_denim_jacket.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -317,6 +415,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'BOTTOMS',
     path: '/images/items/women/bottoms/w_blue_relax_jeans.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -327,6 +428,9 @@ export const allItems: Item[]= [
     department: 'WOMEN',
     category: 'BOTTOMS',
     path: '/images/items/women/bottoms/w_relax_corduroy_pants.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },
@@ -337,6 +441,9 @@ export const allItems: Item[]= [
     department: 'KIDS',
     category: 'TEES',
     path: '/images/items/kids/tees/k_kids_print_tee.jpg',
+    images: [
+      {path: '/images/items/unisex/tees/un_basic_tee.jpg'},
+    ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L','XL']
   },

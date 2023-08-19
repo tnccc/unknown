@@ -1,24 +1,36 @@
 import { useState } from 'react';
 import classes from '@/styles/color_list.module.scss'
 type Items = {
-  items: string[];
+  colorItems: {
+    id: number;
+    value: string;
+  }[];
   styles?: any;
+  checkedBoxIds: number[];
+  onChangeBoxId(id: number): void;
 }
 
-export const ColorList = ({items, styles}: Items) => {
+export const ColorList = ({colorItems, styles, checkedBoxIds, onChangeBoxId}: Items) => {
+  const selectHandler = (id: number) => {
+    onChangeBoxId(id);
+  };
 
   return (
     <>
       <div className={classes.color_list}>
         <div className={classes.heading}>
           Color
-          {/* 選択中の色 */}
         </div>
         <div className={classes.container}>
-          {items.map((item: string) => (
+          {colorItems.map((item: any) => (
             <button
-              className={classes[item]}
-              
+              key={item.id}
+              className={
+                `${classes[item.value]}
+                ${checkedBoxIds?.includes(item.id) ? classes.selected : ''}
+                ${checkedBoxIds.includes(item.id) && item.id === 3 ? classes.selected_gray : ''}
+                `}
+              onClick={() => selectHandler(item.id)}
             />
           ))}
         </div>
