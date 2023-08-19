@@ -21,7 +21,7 @@ export default function Home() {
   const test = (msg: string) => {
     console.log(msg)
   }
-
+  
   return (
     <>
       <Head>

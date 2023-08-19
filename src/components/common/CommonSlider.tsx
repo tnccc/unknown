@@ -13,6 +13,7 @@ type SliderProps = {
   gap?: number;
   rewind?: boolean;
   pagination?: boolean;
+  href?: string;
 }
 
 export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderProps) => {
@@ -56,7 +57,10 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
               className={classes.slider_slide}
               key={item.name}
             >
-              <CommonCard item={item}/>
+              <CommonCard 
+                item={item}
+                href={`/products/${item.id}`}
+              />
             </SplideSlide>
           )}
         </SplideTrack>

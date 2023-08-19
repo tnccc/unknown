@@ -1,7 +1,7 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router' 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 // @ts-ignore spilideの型定義を無視
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
@@ -18,14 +18,18 @@ import { ButtonList } from '@/components/ButtonList';
 import { QuantityControl } from '@/components/QuantityControl';
 import { CommonButton } from '@/components/common/CommonButton';
 import { allItems } from '../../../public/const/allItems';
+import { colors } from '../../../public/const/colors';
 
-type DetailProps = {
-  id: number;
-}
+type selectBox = {
+  sizes: number[];
+  colors: number[];
+};
 
-const detail: NextPage<DetailProps> = ((props: any) => {
-  const id = props.id;
-  const images = props.img
+const detail: NextPage = ((props: any) => {
+  const [selectBox, setSelectBox] = useState<selectBox>({
+    sizes: [],
+    colors: [],
+  });
   const router = useRouter();
   const splideRef = useRef<Splide | null>(null);
   const options = {
@@ -35,8 +39,6 @@ const detail: NextPage<DetailProps> = ((props: any) => {
   };
 
   const product = allItems.find((item: any) => item.id === router.query.id);
-
-  console.log("product", product)
 
   const test = (msg: string) => {
     console.log(msg)
@@ -58,6 +60,41 @@ const detail: NextPage<DetailProps> = ((props: any) => {
     }
   }
 
+  const formattedPrice = (price: number) => {
+    const priceStr = price.toString();
+    if(priceStr.length === 4) {
+      return `${priceStr.slice(0, 1)},${priceStr.slice(1)}`;
+    }
+    if(priceStr.length === 5) {
+      return `${priceStr.slice(0, 2)},${priceStr.slice(2)}`;
+    }
+    return priceStr;
+  }
+
+  const onPushFilterId = (
+    itemName: 'sizes' | 'colors',
+    id: number,
+  ) => {
+    const prevIds = [...selectBox[itemName]];
+    const exist = prevIds.includes(id);
+    if(exist) {
+      const updateIds = prevIds.filter((itemId: number) => itemId !== id);
+      setSelectBox({
+        ...selectBox,
+        [itemName]: updateIds
+      })
+    };
+    if(!exist) {
+      setSelectBox({
+        ...selectBox,
+        [itemName]: [...prevIds, id]
+      })
+    };
+  }
+
+  console.log('colors', selectBox.colors);
+  console.log('sizes', selectBox.sizes);
+
   return (
     <>
       <Head>
@@ -75,14 +112,14 @@ const detail: NextPage<DetailProps> = ((props: any) => {
           <div className={classes.container}>
             <div className={classes.left_column}>
               <div className={classes.image}>
-                {/* <Splide
+                <Splide
                   ref={splideRef}
                   hasTrack={false}
                   className={slider.slider}
                   options={options}
                 >
                   <SplideTrack>
-                    {images.map((image: any) => 
+                    {product?.images.map((image: any) => 
                       <SplideSlide 
                         className={slider.slider_slide}
                         key={image.path}
@@ -107,31 +144,34 @@ const detail: NextPage<DetailProps> = ((props: any) => {
                       <SliderArrow />
                     </button>
                   </div>
-                </Splide> */}
+                </Splide>
               </div>
             </div>
             <div className={classes.right_column}>
               <div className={classes.heading}>
-                {/* データ取得方法が未定の為、一旦ベタで書く */}
                 <div className={classes.title}>
-                  <span>MEN'S</span>
-                  <h2>Basic Tee</h2>
+                  <span>{product?.category}</span>
+                  <h2>{product?.name}</h2>
                 </div>
                 <div className={classes.price}>
-                  <span>5000</span>
+                  <span>{formattedPrice(product?.price ?? 0)}</span>
                 </div>
               </div>
               <div className={classes.color}>
                 <ColorList
-                  items={['white', 'black', 'gray', 'red']}
+                  checkedBoxIds={selectBox.colors}
+                  onChangeBoxId={(boxId) => onPushFilterId('colors', boxId)}
+                  colorItems={colors}
                 />
               </div>
-              {/* <div className={classes.size}>
+              <div className={classes.size}>
                 <ButtonList 
+                  checkedBoxIds={selectBox.sizes}
+                  onChangeBoxId={(boxId) => onPushFilterId('sizes', boxId)}
                   heading='Size'
                   buttonItems={sizes}
                 />
-              </div> */}
+              </div>
               <div className={classes.quantity}>
                 <h3>Quantity</h3>
                 <QuantityControl />

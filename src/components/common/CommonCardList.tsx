@@ -17,7 +17,7 @@ export const CommonCardList = ({items, listStyle, cardStyle}: CommonCardListProp
       >
         {items.map((item) => 
           <CommonCard key={item.name}
-          link={`/products/${item.id}`}
+          href={`/products/${item.id}`}
           item={item} cardStyle={cardStyle}/>
         )}
       </div>

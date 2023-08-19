@@ -9,8 +9,8 @@ type Props = {
     value: string;
   }[];
   styles?: React.CSSProperties;
-  checkedBoxIds: number[]; // added
-  onChangeBoxId(id: number): void; // added
+  checkedBoxIds: number[];
+  onChangeBoxId(id: number): void;
 }
 
 type ButtonItem = {
@@ -19,22 +19,9 @@ type ButtonItem = {
 };
 
 export const ButtonList = ({heading, buttonItems , styles, checkedBoxIds, onChangeBoxId}: Props) => {
-  // const [selectedItemId, setSelectedItemId] = useState<number[]>([])
-  // const selectHandler = (id: number) => {
-  //   setSelectedItemId((prevSelectedIds): any => {
-  //     const exist = prevSelectedIds.includes(id);
-  //     if (exist) {
-  //       return prevSelectedIds.filter((itemId: number) => itemId !== id);
-  //     } 
-  //     if (!exist) {
-  //       return [...prevSelectedIds, id];
-  //     }
-  //   });
-  // };
-
   const selectHandler = (id: number) => {
-    onChangeBoxId(id)
-  }
+    onChangeBoxId(id);
+  };
 
   return (
     <>

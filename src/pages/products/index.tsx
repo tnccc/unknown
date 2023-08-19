@@ -17,7 +17,7 @@ type ProductFilter = {
   categories: number[];
   minPrice: number | null;
   maxPrice: number | null;
-}
+};
 
 export default function Products() {
   const [productFilters, setProductFilters] = useState<ProductFilter>({
@@ -29,10 +29,10 @@ export default function Products() {
   
   const onPushFilterId = (
     itemName: 'departments' | 'categories', 
-    id: number
+    id: number,
   ) => {
-    const prevIds = [...productFilters[itemName]]
-    const exist = prevIds.includes(id)
+    const prevIds = [...productFilters[itemName]];
+    const exist = prevIds.includes(id);
     if(exist) {
       const updateIds = prevIds.filter((itemId: number) => itemId !== id)
       setProductFilters({
@@ -56,12 +56,6 @@ export default function Products() {
     })
   }
 
-  /**
-   * 
-   * const  [productFilters, setProductFilters] 内にはチェックボックスで選択された要素が持つIDの配列が格納、更新
-   * 1. 選択されたIDとDepartment, CategoryのIDを比較
-   * 2. 一致しているラベルを表示
-   */
   const filteredNames = (itemName: 'departments' | 'categories') => {
     const selectedIds = productFilters[itemName];
     const items = itemName === 'departments' ? departments : categories;
@@ -84,25 +78,25 @@ export default function Products() {
     })
     if (productFilters.departments.length !== 0) {
       if (!departmentNames.includes(item.department)) {
-        return false
+        return false;
       }
     }
     if (productFilters.categories.length !== 0) {
       if (!categoriesNames.includes(item.category)) {
-        return false
+        return false;
       }
     }
     if (productFilters.minPrice !== null) {
       if (item.price < productFilters.minPrice) {
-        return false
+        return false;
       }
     }
     if (productFilters.maxPrice !== null) {
       if (item.price > productFilters.maxPrice) {
-        return false
+        return false;
       }
     }
-    return true
+    return true;
   })
 
   return (
