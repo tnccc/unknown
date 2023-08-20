@@ -12,11 +12,6 @@ export type Item = {
   sizes: string[];
 };
 
-const obj2: 
-  { name: string; age?: number }[] = [
-  { name: "Teru", age: 20 },
-];
-
 export const allItems: Item[]= [
   {
     id: '000000',
