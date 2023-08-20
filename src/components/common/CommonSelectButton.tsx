@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import classes from '@/styles/common/select_button.module.scss'
 
 type Props = {
@@ -8,6 +7,7 @@ type Props = {
 }
 
 export const CommonSelectButton = ({label, isSelected, onSelect}: Props) => {
+
   return(
     <>
       <button 

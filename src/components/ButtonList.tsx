@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import classes from '@/styles/button_list.module.scss'
 import { CommonSelectButton } from './common/CommonSelectButton'
 
