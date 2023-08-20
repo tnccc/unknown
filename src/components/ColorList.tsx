@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import classes from '@/styles/color_list.module.scss'
 type Items = {
   colorItems: {
