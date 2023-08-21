@@ -1,8 +1,9 @@
+'use client';
 import { useRef } from 'react';
 // @ts-ignore spilideの型定義を無視
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import classes from '@/styles/common/slider.module.scss'
+import classes from '@/styles/common/slider.module.scss';
 import { CommonCard } from './CommonCard';
 import { SliderArrow } from '../icon/SliderArrow';
 import { Item } from '../../../public/const/allItems';
@@ -14,9 +15,14 @@ type SliderProps = {
   rewind?: boolean;
   pagination?: boolean;
   href?: string;
-}
+};
 
-export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderProps) => {
+export const CommonSlider = ({
+  items,
+  perPage = 4,
+  gap = 20,
+  rewind,
+}: SliderProps) => {
   const splideRef = useRef<Splide | null>(null);
   const options = {
     perPage: perPage,
@@ -26,22 +32,22 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
       768: {
         perPage: 1,
         gap: 0,
-        rewind: true
-      }
-    }
+        rewind: true,
+      },
+    },
   };
 
   const goToPrevSlide = () => {
-    if(splideRef.current) {
+    if (splideRef.current) {
       splideRef.current?.go('-1');
     }
   };
 
   const goToNextSlide = () => {
-    if(splideRef.current) {
+    if (splideRef.current) {
       splideRef.current?.go('+1');
     }
-  }
+  };
 
   return (
     <>
@@ -52,20 +58,14 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
         options={options}
       >
         <SplideTrack>
-          {items.map((item: any) => 
-            <SplideSlide 
-              className={classes.slider_slide}
-              key={item.name}
-            >
-              <CommonCard 
-                item={item}
-                href={`/products/${item.id}`}
-              />
+          {items.map((item: any) => (
+            <SplideSlide className={classes.slider_slide} key={item.name}>
+              <CommonCard item={item} href={`/products/${item.id}`} />
             </SplideSlide>
-          )}
+          ))}
         </SplideTrack>
         <div className={classes.slider_arrows}>
-          <button 
+          <button
             onClick={goToPrevSlide}
             className={`${classes.slider_arrow} ${classes.slider_arrow_prev}`}
           >
@@ -80,5 +80,5 @@ export const CommonSlider = ({ items, perPage = 4, gap = 20,  rewind }: SliderPr
         </div>
       </Splide>
     </>
-  )
-}
+  );
+};

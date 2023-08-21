@@ -14,20 +14,6 @@ import { CommonCardList } from '@/components/common/CommonCardList';
 import { FadeInElements } from '@/components/FadeInElements';
 
 export default function Home() {
-  const getTestData = async () => {
-    const res = await fetch(
-      'https://next-api-mock-git-main-thirosue.vercel.app/api/products/new',
-      {
-        headers: {
-          'Content-Type': 'aplication/json',
-        },
-      }
-    );
-    const data = await res.json();
-    return data;
-  };
-  console.log(getTestData());
-
   const filteredList = (): Item[] => {
     return allItems.filter((item: any) => item.id < 12);
   };

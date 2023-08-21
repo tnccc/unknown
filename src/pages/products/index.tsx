@@ -26,6 +26,16 @@ export default function Products() {
     maxPrice: null,
   });
 
+  const [item, setItem] = useState({
+    items: [],
+  });
+
+  useEffect(() => {
+    fetch('api/allItems')
+      .then((responce) => responce.json())
+      .then((data) => console.log(data));
+  }, []);
+
   const onPushFilterId = (
     itemName: 'departments' | 'categories',
     id: number
