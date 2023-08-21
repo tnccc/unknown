@@ -1,34 +1,36 @@
-import { NextPage } from 'next'
-import Head from 'next/head'
-import { useRouter } from 'next/router' 
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 
 // @ts-ignore spilideの型定義を無視
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import styles from '@/styles/base.module.scss'
-import classes from '@/styles/pages/details.module.scss'
-import slider from '@/styles/common/slider.module.scss'
+import styles from '@/styles/base.module.scss';
+import classes from '@/styles/pages/details.module.scss';
+import slider from '@/styles/common/slider.module.scss';
 import { sizes } from '../../../public/const/sizes';
-import { GlobalHeader } from '@/components/GlobalHeader'
-import { GlobalFooter } from '@/components/GlobalFooter'
-import { SliderArrow } from '../../components/icon/SliderArrow';
+import { allItems } from '../../../public/const/allItems';
+import { colors } from '../../../public/const/colors';
+import { GlobalHeader } from '@/components/GlobalHeader';
+import { GlobalFooter } from '@/components/GlobalFooter';
+import { SliderArrow } from '@/components/icon/SliderArrow';
 import { ColorList } from '@/components/ColorList';
 import { ButtonList } from '@/components/ButtonList';
 import { QuantityControl } from '@/components/QuantityControl';
 import { CommonButton } from '@/components/common/CommonButton';
-import { allItems } from '../../../public/const/allItems';
-import { colors } from '../../../public/const/colors';
 
 type selectBox = {
   sizes: number[];
   colors: number[];
+  quantity: number;
 };
 
-const detail: NextPage = ((props: any) => {
+const detail: NextPage = (props: any) => {
   const [selectBox, setSelectBox] = useState<selectBox>({
     sizes: [],
     colors: [],
+    quantity: 1,
   });
   const router = useRouter();
   const splideRef = useRef<Splide | null>(null);
@@ -41,59 +43,68 @@ const detail: NextPage = ((props: any) => {
   const product = allItems.find((item: any) => item.id === router.query.id);
 
   const test = (msg: string) => {
-    console.log(msg)
-  }
+    console.log(msg);
+  };
 
-  if(router.isFallback) {
-    return <div>loading...</div>
+  if (router.isFallback) {
+    return <div>loading...</div>;
   }
 
   const goToPrevSlide = () => {
-    if(splideRef.current) {
+    if (splideRef.current) {
       splideRef.current?.go('-1');
     }
   };
 
   const goToNextSlide = () => {
-    if(splideRef.current) {
+    if (splideRef.current) {
       splideRef.current?.go('+1');
     }
-  }
+  };
 
   const formattedPrice = (price: number) => {
     const priceStr = price.toString();
-    if(priceStr.length === 4) {
+    if (priceStr.length === 4) {
       return `${priceStr.slice(0, 1)},${priceStr.slice(1)}`;
     }
-    if(priceStr.length === 5) {
+    if (priceStr.length === 5) {
       return `${priceStr.slice(0, 2)},${priceStr.slice(2)}`;
     }
     return priceStr;
-  }
+  };
 
-  const onPushFilterId = (
-    itemName: 'sizes' | 'colors',
-    id: number,
-  ) => {
+  const onPushFilterId = (itemName: 'sizes' | 'colors', id: number) => {
     const prevIds = [...selectBox[itemName]];
-    const exist = prevIds.includes(id);
-    if(exist) {
+    const idExists = prevIds.includes(id);
+    if (idExists) {
       const updateIds = prevIds.filter((itemId: number) => itemId !== id);
       setSelectBox({
         ...selectBox,
-        [itemName]: updateIds
-      })
-    };
-    if(!exist) {
+        [itemName]: updateIds,
+      });
+    }
+    if (!idExists) {
       setSelectBox({
         ...selectBox,
-        [itemName]: [...prevIds, id]
-      })
-    };
-  }
+        [itemName]: [...prevIds, id],
+      });
+    }
+  };
 
-  console.log('colors', selectBox.colors);
-  console.log('sizes', selectBox.sizes);
+  const changeQuantity = (itemName: 'decrement' | 'increment') => {
+    if (itemName === 'decrement' && selectBox.quantity > 1) {
+      return setSelectBox((prev) => ({
+        ...prev,
+        quantity: prev.quantity - 1,
+      }));
+    }
+    if (itemName === 'increment' && selectBox.quantity < 10) {
+      return setSelectBox((prev) => ({
+        ...prev,
+        quantity: prev.quantity + 1,
+      }));
+    }
+  };
 
   return (
     <>
@@ -101,9 +112,7 @@ const detail: NextPage = ((props: any) => {
         <title>UNKNOWN | {props.name}</title>
         <meta name="description" content="UNKNOWN SHOP" />
         <meta httpEquiv="content-language" content="ja" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div className={`${styles.pages} ${classes.pages}`}>
@@ -119,8 +128,8 @@ const detail: NextPage = ((props: any) => {
                   options={options}
                 >
                   <SplideTrack>
-                    {product?.images.map((image: any) => 
-                      <SplideSlide 
+                    {product?.images.map((image: any) => (
+                      <SplideSlide
                         className={slider.slider_slide}
                         key={image.path}
                       >
@@ -128,10 +137,10 @@ const detail: NextPage = ((props: any) => {
                           <img src={image.path} alt={image.name} />
                         </figure>
                       </SplideSlide>
-                    )}
+                    ))}
                   </SplideTrack>
                   <div className={slider.slider_arrows}>
-                    <button 
+                    <button
                       onClick={goToPrevSlide}
                       className={`${slider.slider_arrow} ${slider.slider_arrow_prev}`}
                     >
@@ -165,22 +174,22 @@ const detail: NextPage = ((props: any) => {
                 />
               </div>
               <div className={classes.size}>
-                <ButtonList 
+                <ButtonList
                   checkedBoxIds={selectBox.sizes}
                   onChangeBoxId={(boxId) => onPushFilterId('sizes', boxId)}
-                  heading='Size'
+                  heading="Size"
                   buttonItems={sizes}
                 />
               </div>
               <div className={classes.quantity}>
                 <h3>Quantity</h3>
-                <QuantityControl />
+                <QuantityControl
+                  quantity={selectBox.quantity}
+                  onChangeQuantity={changeQuantity}
+                />
               </div>
               <div className={classes.button}>
-                <CommonButton
-                  callback={test}
-                  text={'Add to Cart'}
-                />
+                <CommonButton callback={test} text={'Add to Cart'} />
               </div>
             </div>
           </div>
@@ -188,7 +197,7 @@ const detail: NextPage = ((props: any) => {
         <GlobalFooter />
       </div>
     </>
-  )
-})
+  );
+};
 
-export default detail
+export default detail;

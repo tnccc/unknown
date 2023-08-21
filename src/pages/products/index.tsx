@@ -31,15 +31,15 @@ export default function Products() {
     id: number
   ) => {
     const prevIds = [...productFilters[itemName]];
-    const exist = prevIds.includes(id);
-    if (exist) {
+    const idExists = prevIds.includes(id);
+    if (idExists) {
       const updateIds = prevIds.filter((itemId: number) => itemId !== id);
       setProductFilters({
         ...productFilters,
         [itemName]: updateIds,
       });
     }
-    if (!exist) {
+    if (!idExists) {
       setProductFilters({
         ...productFilters,
         [itemName]: [...prevIds, id],
@@ -105,11 +105,6 @@ export default function Products() {
         <meta name="description" content="UNKNOWN SHOP" />
         <meta httpEquiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
-        />
       </Head>
       <div className={classes.pages}>
         <GlobalHeader />
