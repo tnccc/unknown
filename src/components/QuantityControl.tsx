@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import classes from '@/styles/quantity_control.module.scss'
+import classes from '@/styles/quantity_control.module.scss';
+import { FC } from 'react';
 
-export const QuantityControl = () => {
-  const [quantity, setQuantity] = useState(1)
-  const quantityReduce = () => {
-    if(quantity > 1)  {
-      return setQuantity(quantity - 1);
-    };
-  }
+type Props = {
+  quantity: number;
+  onChangeQuantity: any;
+};
 
-  const quantityIncrement = () => {
-    if(quantity < 10) {
-      return setQuantity(quantity + 1)
-    }
-  }
+export const QuantityControl: FC<Props> = ({ quantity, onChangeQuantity }) => {
+  console.log(onChangeQuantity);
 
-  return(
+  return (
     <>
       <div className={classes.quantity_control}>
-        <button onClick={quantityReduce}>
+        <button onClick={() => onChangeQuantity('decrement')}>
           <span>-</span>
         </button>
         <div>
-          <span>
-            {quantity}
-          </span>
+          <span>{quantity}</span>
         </div>
-        <button onClick={quantityIncrement}>
+        <button onClick={() => onChangeQuantity('increment')}>
           <span>+</span>
         </button>
       </div>
     </>
-  )
-}
+  );
+};

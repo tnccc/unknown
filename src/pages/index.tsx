@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import styles from '@/styles/base.module.scss';
 import classes from '@/styles/pages/index.module.scss';
+import { allItems } from '../../public/const/allItems';
+import { Item } from '../../public/const/allItems';
 import { GlobalHeader } from '@/components/GlobalHeader';
 import { GlobalFooter } from '@/components/GlobalFooter';
 import { KeyVisual } from '@/components/KeyVisual';
@@ -9,8 +11,6 @@ import { CommonButton } from '@/components/common/CommonButton';
 import { CommonSlider } from '@/components/common/CommonSlider';
 import { CommonCardLarge } from '@/components/common/CommonCardLarge';
 import { CommonCardList } from '@/components/common/CommonCardList';
-import { allItems } from '../../public/const/allItems';
-import { Item } from '../../public/const/allItems';
 import { FadeInElements } from '@/components/FadeInElements';
 
 export default function Home() {
@@ -43,11 +43,6 @@ export default function Home() {
         <meta name="description" content="UNKNOWN SHOP" />
         <meta httpEquiv="content-language" content="ja" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
-        />
       </Head>
       <div className={styles.pages}>
         <GlobalHeader />
