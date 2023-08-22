@@ -12,7 +12,7 @@ export type Item = {
   }[];
   released_at: string;
   sizes: string[];
-  color?: string[];
+  color: string[];
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
@@ -69,7 +69,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L'],
-    color: ['beige'],
+    color: ['only'],
   },
   {
     id: '000003',
@@ -85,6 +85,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['L', 'XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000004',
@@ -100,6 +101,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['white', 'black', 'red'],
   },
   {
     id: '000005',
@@ -115,6 +117,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['white', 'gray', 'red'],
   },
   {
     id: '000006',
@@ -130,6 +133,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['black', 'gray', 'red'],
   },
   {
     id: '000007',
@@ -144,7 +148,8 @@ const allItems: Item[] = [
       { path: '/images/items/men/tees/m_crown_log.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
+    color: ['white', 'black', 'gray'],
   },
   {
     id: '000008',
@@ -159,7 +164,8 @@ const allItems: Item[] = [
       { path: '/images/items/men/tees/m_pocket_tee.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'XL'],
+    color: ['white', 'black'],
   },
   {
     id: '000009',
@@ -174,7 +180,8 @@ const allItems: Item[] = [
       { path: '/images/items/men/sweaters/m_basic_sweat.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'L', 'XL'],
+    color: ['white', 'gray', 'red'],
   },
   {
     id: '000010',
@@ -189,7 +196,8 @@ const allItems: Item[] = [
       { path: '/images/items/unisex/sweaters/un_light_weight_hoodie.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000011',
@@ -204,7 +212,8 @@ const allItems: Item[] = [
       { path: '/images/items/men/shirts/m_oxford_shirts.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['M', 'L', 'XL'],
+    color: ['white', 'black'],
   },
   {
     id: '000012',
@@ -219,7 +228,8 @@ const allItems: Item[] = [
       { path: '/images/items/men/shirts/m_denim_shirts.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
+    color: ['only'],
   },
   {
     id: '000013',
@@ -235,6 +245,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['white', 'black'],
   },
   {
     id: '000014',
@@ -244,12 +255,13 @@ const allItems: Item[] = [
     category: 'JACKETS',
     path: '/images/items/men/jackets/m_leather_jacket.jpg',
     images: [
-      { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
-      { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
-      { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
+      { path: '/images/items/men/jackets/m_leather_jacket.jpg' },
+      { path: '/images/items/men/jackets/m_leather_jacket.jpg' },
+      { path: '/images/items/men/jackets/m_leather_jacket.jpg' },
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['black'],
   },
   {
     id: '000015',
@@ -265,6 +277,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['black'],
   },
   {
     id: '000016',
@@ -280,6 +293,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['white', 'black'],
   },
   {
     id: '000017',
@@ -295,6 +309,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['only'],
   },
   {
     id: '000018',
@@ -310,6 +325,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['white', 'black', 'gray'],
   },
   {
     id: '000019',
@@ -325,6 +341,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['only'],
   },
   {
     id: '000020',
@@ -340,6 +357,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'L', 'XL'],
+    color: ['only'],
   },
   {
     id: '000021',
@@ -355,6 +373,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['L', 'XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000022',
@@ -370,6 +389,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['M'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000023',
@@ -385,6 +405,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000024',
@@ -400,6 +421,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['L', 'XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000025',
@@ -415,6 +437,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
   {
     id: '000026',
@@ -430,6 +453,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['M', 'L', 'XL'],
+    color: ['white', 'black'],
   },
   {
     id: '000026',
@@ -445,6 +469,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M'],
+    color: ['white', 'black'],
   },
   {
     id: '000027',
@@ -460,6 +485,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['black'],
   },
   {
     id: '000028',
@@ -475,6 +501,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['XL'],
+    color: ['only'],
   },
   {
     id: '000029',
@@ -490,6 +517,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'L', 'XL'],
+    color: ['only'],
   },
   {
     id: '000030',
@@ -505,6 +533,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S'],
+    color: ['white', 'black'],
   },
   {
     id: '000031',
@@ -520,6 +549,7 @@ const allItems: Item[] = [
     ],
     released_at: '2023-04-01',
     sizes: ['S', 'M', 'XL'],
+    color: ['white', 'black', 'gray', 'red'],
   },
 ];
 export default handler;
