@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
@@ -151,9 +152,16 @@ const detail: NextPage = (props: any) => {
       <div className={`${styles.pages} ${classes.pages}`}>
         <GlobalHeader />
         <main className={styles.main}>
+          <div className={classes.breadcrumb}>
+            <div>
+              <Link href={'/products'}>ALL</Link>
+            </div>
+            <div>{product?.name}</div>
+          </div>
           <div className={classes.container}>
             {initialized && product ? (
               <>
+                <div className={classes.breadcrumb}></div>
                 <div className={classes.left_column}>
                   <div className={classes.image}>
                     <Splide

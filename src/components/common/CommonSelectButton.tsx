@@ -13,7 +13,6 @@ export const CommonSelectButton = ({
   isSizeMatch,
   onSelect,
 }: Props) => {
-  console.log(isSizeMatch);
   return (
     <>
       <button
