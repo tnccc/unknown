@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from '@/styles/base.module.scss';
 import classes from '@/styles/pages/index.module.scss';
-import { allItems } from '../../public/const/allItems';
-import { Item } from '../../public/const/allItems';
+import { Item } from './api/allItems';
 import { GlobalHeader } from '@/components/GlobalHeader';
 import { GlobalFooter } from '@/components/GlobalFooter';
 import { KeyVisual } from '@/components/KeyVisual';
@@ -14,8 +14,25 @@ import { CommonCardList } from '@/components/common/CommonCardList';
 import { FadeInElements } from '@/components/FadeInElements';
 
 export default function Home() {
+  const [productData, setProductData] = useState({
+    allItems: [] as Item[],
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const allItem = await fetch('/api/allItems');
+        const data = await allItem.json();
+        setProductData({ allItems: data });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const filteredList = (): Item[] => {
-    return allItems.filter((item: any) => item.id < 12);
+    return productData.allItems.filter((item: any) => item.id < 12);
   };
 
   const test = (msg: string) => {

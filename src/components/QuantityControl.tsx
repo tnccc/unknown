@@ -7,8 +7,6 @@ type Props = {
 };
 
 export const QuantityControl: FC<Props> = ({ quantity, onChangeQuantity }) => {
-  console.log(onChangeQuantity);
-
   return (
     <>
       <div className={classes.quantity_control}>

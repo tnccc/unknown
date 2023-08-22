@@ -16,28 +16,29 @@
     button {
       width: 32px;
       height: 32px;
+      position: relative;
       border-radius: 50%;
       border: 1px solid var(--gray);
-  
+
       &.white {
         background-color: var(--white);
       }
-  
+
       &.black {
         background-color: var(--black);
       }
-  
+
       &.gray {
         background-color: var(--gray);
       }
-  
+
       &.red {
         background-color: var(--red);
       }
 
       &.selected {
         &::before {
-          content: "";
+          content: '';
           display: block;
           width: 28px;
           height: 28px;
@@ -49,7 +50,7 @@
 
       &.selected_gray {
         &::before {
-          content: "";
+          content: '';
           display: block;
           width: 28px;
           height: 28px;
@@ -58,7 +59,10 @@
           border-radius: 50%;
         }
       }
+
+      &.disabled {
+        display: none;
+      }
     }
   }
-
 }

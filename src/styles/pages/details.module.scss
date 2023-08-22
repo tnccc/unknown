@@ -12,6 +12,35 @@
     height: 100%;
   }
 
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    margin-block-start: 32px;
+    padding-inline: 60px;
+
+    a {
+      color: var(--primary-color);
+      transition: opacity var(--transition-time);
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    div {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+
+      &:not(:last-of-type) {
+        &::after {
+          content: '>';
+          font-size: var(--font-size-medium);
+        }
+      }
+    }
+  }
+
   .container {
     display: flex;
     justify-content: center;
@@ -35,7 +64,6 @@
         object-fit: cover;
         aspect-ratio: 1 / 1;
       }
-      
     }
 
     .right_column {
@@ -66,7 +94,7 @@
           font-family: var(--font-family-sub);
 
           &::before {
-            content: "¥";
+            content: '¥';
             display: block;
             margin-inline-end: 2px;
             font-size: var(--font-size-price);
@@ -101,7 +129,7 @@
 
       .button {
         margin-block-start: 64px;
-        
+
         > button {
           width: 100%;
         }
