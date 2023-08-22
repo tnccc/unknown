@@ -6,8 +6,8 @@ type Items = {
   }[];
   styles?: any;
   checkedBoxIds: number[];
-  stockColors: string[] | undefined;
-  colorName?: string[];
+  stockColors: string[];
+  colorName?: any;
   onChangeBoxId(id: number): void;
 };
 
@@ -27,13 +27,17 @@ export const ColorList = ({
     return !stockColors?.includes(item);
   };
 
+  const isColorAvailable = () => {
+    return colorItems.some((item) => item.value.includes(colorName?.[0]));
+  };
+
   return (
     <>
       <div className={classes.color_list}>
         <div className={classes.heading}>Color</div>
         <div className={classes.container}>
-          {colorItems.map((item: any) => (
-            <>
+          {isColorAvailable() ? (
+            colorItems.map((item) => (
               <button
                 key={item.id}
                 className={`${classes[item.value]}
@@ -48,8 +52,12 @@ export const ColorList = ({
                 onClick={() => selectHandler(item.id)}
                 disabled={inStockMatchingColor(item.value)}
               />
-            </>
-          ))}
+            ))
+          ) : (
+            <div className={classes.color_name}>
+              {colorName?.join('').toUpperCase()}
+            </div>
+          )}
         </div>
       </div>
     </>
