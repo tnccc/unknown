@@ -3,7 +3,7 @@ import classes from '@/styles/common/select_button.module.scss';
 type Props = {
   label: string;
   isSelected: boolean;
-  isSizeMatch: any;
+  isSizeMatch: boolean;
   onSelect: () => void;
 };
 

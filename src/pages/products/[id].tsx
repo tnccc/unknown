@@ -211,9 +211,11 @@ const detail: NextPage = (props: any) => {
                   </div>
                   <div className={classes.color}>
                     <ColorList
+                      colorName={product?.color}
+                      colorItems={productData.colors}
                       checkedBoxIds={selectBox.colors}
                       onChangeBoxId={(boxId) => onPushFilterId('colors', boxId)}
-                      colorItems={productData.colors}
+                      stockColors={product?.color}
                     />
                   </div>
                   <div className={classes.size}>
