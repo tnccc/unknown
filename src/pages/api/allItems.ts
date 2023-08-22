@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-type Item = {
+export type Item = {
   id: string;
   name: string;
   price: number;
@@ -13,6 +13,13 @@ type Item = {
   released_at: string;
   sizes: string[];
   color?: string[];
+};
+
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method?.toLocaleLowerCase() !== 'get') {
+    res.status(405).end();
+  }
+  res.status(200).json(allItems);
 };
 
 const allItems: Item[] = [
@@ -29,7 +36,7 @@ const allItems: Item[] = [
       { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
     ],
     released_at: '2023-08-20',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M'],
     color: ['white', 'black'],
   },
   {
@@ -40,12 +47,12 @@ const allItems: Item[] = [
     category: 'SWEATERS',
     path: '/images/items/men/sweaters/m_logo_hoodie.jpg',
     images: [
-      { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
-      { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
-      { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
+      { path: '/images/items/men/jackets/m_tailored_jacket.jpg' },
+      { path: '/images/items/men/jackets/m_tailored_jacket.jpg' },
+      { path: '/images/items/men/jackets/m_tailored_jacket.jpg' },
     ],
     released_at: '2023-08-20',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['L', 'XL'],
     color: ['white', 'black'],
   },
   {
@@ -61,7 +68,7 @@ const allItems: Item[] = [
       { path: '/images/items/unisex/tees/un_basic_tee.jpg' },
     ],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
     color: ['beige'],
   },
   {
@@ -73,7 +80,7 @@ const allItems: Item[] = [
     path: '/images/items/men/shirts/m_rugby_polo.jpg',
     images: [{ path: '/images/items/unisex/tees/un_basic_tee.jpg' }],
     released_at: '2023-04-01',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['L', 'XL'],
   },
   {
     id: '000004',
@@ -395,9 +402,4 @@ const allItems: Item[] = [
     sizes: ['S', 'M', 'L', 'XL'],
   },
 ];
-
-export const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET') {
-    res.status(200).json(allItems);
-  }
-};
+export default handler;

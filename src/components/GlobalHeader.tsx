@@ -8,7 +8,7 @@ import { SearchIcon } from './icon/SearchIcon';
 export const GlobalHeader = () => {
   const menus = [
     { title: 'New', path: '/' },
-    { title: 'ALL', path: '/products' },
+    { title: 'All', path: '/products' },
     { title: 'Tops', path: '/' },
     { title: 'Bottoms', path: '/' },
     { title: 'Sale', path: '/' },

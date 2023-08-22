@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from '@/styles/base.module.scss';
 import classes from '@/styles/pages/products.module.scss';
-import { allItems } from '../../../public/const/allItems';
-import { categories } from '../../../public/const/categories';
-import { departments } from '../../../public/const/departments';
+import { Item } from '../api/allItems';
+import { departments } from 'public/const/departments';
+import { categories } from 'public/const/categories';
 import { GlobalHeader } from '@/components/GlobalHeader';
 import { GlobalFooter } from '@/components/GlobalFooter';
 import { CheckBoxList } from '@/components/CheckBoxList';
@@ -18,7 +18,20 @@ type ProductFilter = {
   maxPrice: number | null;
 };
 
+type MatchingItem = {
+  id: number;
+  label: string;
+  checked: boolean;
+};
+
 export default function Products() {
+  const [productData, setProductData] = useState({
+    allItems: [] as Item[],
+    categories: [],
+    colors: [],
+    departments: [],
+    sizes: [],
+  });
   const [productFilters, setProductFilters] = useState<ProductFilter>({
     departments: [],
     categories: [],
@@ -26,14 +39,34 @@ export default function Products() {
     maxPrice: null,
   });
 
-  const [item, setItem] = useState({
-    items: [],
-  });
-
   useEffect(() => {
-    fetch('api/allItems')
-      .then((responce) => responce.json())
-      .then((data) => console.log(data));
+    const fetchData = async () => {
+      try {
+        const allItems = await fetch('api/allItems');
+        const categories = await fetch('api/categories');
+        const colors = await fetch('api/colors');
+        const departments = await fetch('api/departments');
+        const sizes = await fetch('api/sizes');
+
+        const allItemsData = await allItems.json();
+        const categoriesData = await categories.json();
+        const colorsData = await colors.json();
+        const departmentsData = await departments.json();
+        const sizesData = await sizes.json();
+
+        const combinedData = {
+          allItems: allItemsData,
+          categories: categoriesData,
+          colors: colorsData,
+          departments: departmentsData,
+          sizes: sizesData,
+        };
+        setProductData(combinedData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
 
   const onPushFilterId = (
@@ -67,7 +100,10 @@ export default function Products() {
 
   const filteredNames = (itemName: 'departments' | 'categories') => {
     const selectedIds = productFilters[itemName];
-    const items = itemName === 'departments' ? departments : categories;
+    const items: MatchingItem[] =
+      itemName === 'departments'
+        ? productData.departments
+        : productData.categories;
     if (itemName === 'departments' ? selectedIds.length === 0 : '') {
       return 'ALL';
     }
@@ -78,7 +114,7 @@ export default function Products() {
     return matchingLabels.join(', ');
   };
 
-  const filteredItems = allItems.filter((item) => {
+  const filteredItems = productData.allItems.filter((item) => {
     const departmentNames = productFilters.departments.map((id) => {
       return departments.find((item) => item.id === id)?.label;
     });

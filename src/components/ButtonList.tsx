@@ -4,11 +4,12 @@ import { FC } from 'react';
 
 type Props = {
   heading: string;
+  styles?: React.CSSProperties;
   buttonItems: {
     id: number;
     value: string;
   }[];
-  styles?: React.CSSProperties;
+  sizeStocks: string[];
   checkedBoxIds: number[];
   onChangeBoxId(id: number): void;
 };
@@ -20,13 +21,18 @@ type ButtonItem = {
 
 export const ButtonList: FC<Props> = ({
   heading,
-  buttonItems,
   styles,
+  buttonItems,
   checkedBoxIds,
+  sizeStocks,
   onChangeBoxId,
 }: Props) => {
   const selectHandler = (id: number) => {
     onChangeBoxId(id);
+  };
+
+  const isSizeMatch = (item: any) => {
+    return !sizeStocks.includes(item);
   };
 
   return (
@@ -36,8 +42,9 @@ export const ButtonList: FC<Props> = ({
         <div className={classes.container}>
           {buttonItems.map((item: ButtonItem) => (
             <CommonSelectButton
-              label={item.value}
               key={item.id}
+              label={item.value}
+              isSizeMatch={isSizeMatch(item.value)}
               isSelected={checkedBoxIds?.includes(item.id)}
               onSelect={() => selectHandler(item.id)}
             />

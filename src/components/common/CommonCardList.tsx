@@ -1,6 +1,6 @@
-import classes from '@/styles/common/card_list.module.scss'
-import { CommonCard } from "./CommonCard"
-import { Item } from '../../../public/const/allItems';
+import classes from '@/styles/common/card_list.module.scss';
+import { CommonCard } from './CommonCard';
+import { Item } from '@/pages/api/allItems';
 
 type CommonCardListProps = {
   items: Item[];
@@ -8,19 +8,23 @@ type CommonCardListProps = {
   cardStyle?: React.CSSProperties;
 };
 
-export const CommonCardList = ({items, listStyle, cardStyle}: CommonCardListProps) => {
-  return(
+export const CommonCardList = ({
+  items,
+  listStyle,
+  cardStyle,
+}: CommonCardListProps) => {
+  return (
     <>
-      <div
-        className={classes.card_list}
-        style={listStyle}
-      >
-        {items.map((item) => 
-          <CommonCard key={item.name}
-          href={`/products/${item.id}`}
-          item={item} cardStyle={cardStyle}/>
-        )}
+      <div className={classes.card_list} style={listStyle}>
+        {items.map((item) => (
+          <CommonCard
+            key={item.name}
+            href={`/products/${item.id}`}
+            item={item}
+            cardStyle={cardStyle}
+          />
+        ))}
       </div>
     </>
-  )
-}
+  );
+};
